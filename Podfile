@@ -8,8 +8,5 @@ target 'VPN Stat' do
 
 pod 'Alamofire'
 pod 'SwiftyJSON'
-pod 'AIFlatSwitch'
-pod 'AWSAPIGateway'
-pod 'RNLoadingButton-Swift'
 
 end
