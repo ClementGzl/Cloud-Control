@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6192F25F3970B5A131AEAA9C /* Pods_VPN_Stat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A355F7D5CC69F86A015868 /* Pods_VPN_Stat.framework */; };
+		EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC002101FDE50084CC59 /* AuthViewController.swift */; };
+		EB0CAC0321020EFE0084CC59 /* TouchIDAuthentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */; };
+		EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8452E22101E8E6001D26BD /* Constants.secret.swift */; };
+		EBB7892C20F37643006BDBF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7892B20F37643006BDBF6 /* AppDelegate.swift */; };
+		EBB7892E20F37643006BDBF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7892D20F37643006BDBF6 /* ViewController.swift */; };
+		EBB7893120F37643006BDBF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB7892F20F37643006BDBF6 /* Main.storyboard */; };
+		EBB7893320F37644006BDBF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB7893220F37644006BDBF6 /* Assets.xcassets */; };
+		EBB7893620F37644006BDBF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB7893420F37644006BDBF6 /* LaunchScreen.storyboard */; };
+		EBD3331F210233B50018232C /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD3331E210233B50018232C /* LoadingButton.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		16A355F7D5CC69F86A015868 /* Pods_VPN_Stat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VPN_Stat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3834B2F72D5B7135AF8C52C2 /* Pods-VPN Stat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VPN Stat.release.xcconfig"; path = "Pods/Target Support Files/Pods-VPN Stat/Pods-VPN Stat.release.xcconfig"; sourceTree = "<group>"; };
+		51741FE489493E26DE94F1E2 /* Pods-VPN Stat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VPN Stat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VPN Stat/Pods-VPN Stat.debug.xcconfig"; sourceTree = "<group>"; };
+		EB0CAC002101FDE50084CC59 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIDAuthentification.swift; sourceTree = "<group>"; };
+		EB8452E22101E8E6001D26BD /* Constants.secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.secret.swift; sourceTree = "<group>"; };
+		EBB7892820F37643006BDBF6 /* VPN Stat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VPN Stat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBB7892B20F37643006BDBF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EBB7892D20F37643006BDBF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EBB7893020F37643006BDBF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EBB7893220F37644006BDBF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EBB7893520F37644006BDBF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EBB7893720F37644006BDBF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBD3331E210233B50018232C /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EBB7892520F37643006BDBF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6192F25F3970B5A131AEAA9C /* Pods_VPN_Stat.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6B690EA606E5AB95AAB2F396 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				51741FE489493E26DE94F1E2 /* Pods-VPN Stat.debug.xcconfig */,
+				3834B2F72D5B7135AF8C52C2 /* Pods-VPN Stat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EB8452E42101E8F5001D26BD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EBB7892F20F37643006BDBF6 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EB8452E52101E90C001D26BD /* Data model */ = {
+			isa = PBXGroup;
+			children = (
+				EB8452E22101E8E6001D26BD /* Constants.secret.swift */,
+				EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */,
+				EBD3331E210233B50018232C /* LoadingButton.swift */,
+			);
+			path = "Data model";
+			sourceTree = "<group>";
+		};
+		EB8452E62101E91C001D26BD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EBB7892D20F37643006BDBF6 /* ViewController.swift */,
+				EB0CAC002101FDE50084CC59 /* AuthViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EBB7891F20F37643006BDBF6 = {
+			isa = PBXGroup;
+			children = (
+				EBB7892A20F37643006BDBF6 /* VPN Stat */,
+				EBB7892920F37643006BDBF6 /* Products */,
+				6B690EA606E5AB95AAB2F396 /* Pods */,
+				F02F3D9C63406BE0620CC14A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EBB7892920F37643006BDBF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBB7892820F37643006BDBF6 /* VPN Stat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBB7892A20F37643006BDBF6 /* VPN Stat */ = {
+			isa = PBXGroup;
+			children = (
+				EBB7892B20F37643006BDBF6 /* AppDelegate.swift */,
+				EB8452E62101E91C001D26BD /* Controllers */,
+				EB8452E42101E8F5001D26BD /* Views */,
+				EB8452E52101E90C001D26BD /* Data model */,
+				EBB7893220F37644006BDBF6 /* Assets.xcassets */,
+				EBB7893420F37644006BDBF6 /* LaunchScreen.storyboard */,
+				EBB7893720F37644006BDBF6 /* Info.plist */,
+			);
+			path = "VPN Stat";
+			sourceTree = "<group>";
+		};
+		F02F3D9C63406BE0620CC14A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16A355F7D5CC69F86A015868 /* Pods_VPN_Stat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EBB7892720F37643006BDBF6 /* VPN Stat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBB7893A20F37644006BDBF6 /* Build configuration list for PBXNativeTarget "VPN Stat" */;
+			buildPhases = (
+				0277F82999C034F57C252D57 /* [CP] Check Pods Manifest.lock */,
+				EBB7892420F37643006BDBF6 /* Sources */,
+				EBB7892520F37643006BDBF6 /* Frameworks */,
+				EBB7892620F37643006BDBF6 /* Resources */,
+				6A3CD53F52C570A6B408BB6E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VPN Stat";
+			productName = "VPN Stat";
+			productReference = EBB7892820F37643006BDBF6 /* VPN Stat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EBB7892020F37643006BDBF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Clément";
+				TargetAttributes = {
+					EBB7892720F37643006BDBF6 = {
+						CreatedOnToolsVersion = 9.4;
+					};
+				};
+			};
+			buildConfigurationList = EBB7892320F37643006BDBF6 /* Build configuration list for PBXProject "VPN Stat" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EBB7891F20F37643006BDBF6;
+			productRefGroup = EBB7892920F37643006BDBF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EBB7892720F37643006BDBF6 /* VPN Stat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EBB7892620F37643006BDBF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBB7893620F37644006BDBF6 /* LaunchScreen.storyboard in Resources */,
+				EBB7893320F37644006BDBF6 /* Assets.xcassets in Resources */,
+				EBB7893120F37643006BDBF6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0277F82999C034F57C252D57 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VPN Stat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A3CD53F52C570A6B408BB6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VPN Stat/Pods-VPN Stat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AIFlatSwitch/AIFlatSwitch.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSAPIGateway/AWSAPIGateway.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RNLoadingButton-Swift/RNLoadingButton_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AIFlatSwitch.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAPIGateway.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNLoadingButton_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VPN Stat/Pods-VPN Stat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EBB7892420F37643006BDBF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBD3331F210233B50018232C /* LoadingButton.swift in Sources */,
+				EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */,
+				EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */,
+				EBB7892E20F37643006BDBF6 /* ViewController.swift in Sources */,
+				EBB7892C20F37643006BDBF6 /* AppDelegate.swift in Sources */,
+				EB0CAC0321020EFE0084CC59 /* TouchIDAuthentification.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EBB7892F20F37643006BDBF6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EBB7893020F37643006BDBF6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EBB7893420F37644006BDBF6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EBB7893520F37644006BDBF6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EBB7893820F37644006BDBF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EBB7893920F37644006BDBF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EBB7893B20F37644006BDBF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51741FE489493E26DE94F1E2 /* Pods-VPN Stat.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y7B9KSH38L;
+				INFOPLIST_FILE = "VPN Stat/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clement.VPN-Stat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		EBB7893C20F37644006BDBF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3834B2F72D5B7135AF8C52C2 /* Pods-VPN Stat.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y7B9KSH38L;
+				INFOPLIST_FILE = "VPN Stat/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clement.VPN-Stat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EBB7892320F37643006BDBF6 /* Build configuration list for PBXProject "VPN Stat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBB7893820F37644006BDBF6 /* Debug */,
+				EBB7893920F37644006BDBF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBB7893A20F37644006BDBF6 /* Build configuration list for PBXNativeTarget "VPN Stat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBB7893B20F37644006BDBF6 /* Debug */,
+				EBB7893C20F37644006BDBF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EBB7892020F37643006BDBF6 /* Project object */;
+}

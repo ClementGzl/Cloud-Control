@@ -1,0 +1,36 @@
+PODS:
+  - AIFlatSwitch (1.0.2)
+  - Alamofire (4.7.3)
+  - AWSAPIGateway (2.6.25):
+    - AWSCore (= 2.6.25)
+  - AWSCore (2.6.25)
+  - RNLoadingButton-Swift (5.0.0)
+  - SwiftyJSON (4.1.0)
+
+DEPENDENCIES:
+  - AIFlatSwitch
+  - Alamofire
+  - AWSAPIGateway
+  - RNLoadingButton-Swift
+  - SwiftyJSON
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AIFlatSwitch
+    - Alamofire
+    - AWSAPIGateway
+    - AWSCore
+    - RNLoadingButton-Swift
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  AIFlatSwitch: 5ab22806eeff3e09d585c2f13d22bfa6e3427191
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AWSAPIGateway: fa7923f8e0a7c66696ab06e91fbc973f3dc3e11e
+  AWSCore: 93ac57c361f6ff9c0749adf9404c4a1a1ecdaa2b
+  RNLoadingButton-Swift: 297f5efcc7e93ba396a652469e9c7a038d8be26c
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+
+PODFILE CHECKSUM: 3680fe18005ac6d5f57cea3c543fee9120da0294
+
+COCOAPODS: 1.5.2
