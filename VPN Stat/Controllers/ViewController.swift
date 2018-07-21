@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     let statusURL = secretStatusURL
     let startURL = secretStartURL
     let stopURL = secretStopURL
-    
+    let headers: HTTPHeaders = ["x-api-key": secretApiKey]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,7 +44,7 @@ class ViewController: UIViewController {
     
     func getStatus(url : String) {
         
-        Alamofire.request(url, method: .get).responseJSON {
+        Alamofire.request(url, method: .get, headers: headers).responseJSON {
             response in
             
             if response.result.isSuccess {
@@ -76,15 +77,15 @@ class ViewController: UIViewController {
     }
     
     func startInstance(url : String) {
-        
-        Alamofire.request(url, method: .get)
+
+        Alamofire.request(url, method: .get, headers: headers)
         getStatus(url: secretStatusURL)
         
     }
     
     func stopInstance(url : String) {
         
-        Alamofire.request(url, method: .get)
+        Alamofire.request(url, method: .get, headers: headers)
         getStatus(url: secretStatusURL)
         
     }
