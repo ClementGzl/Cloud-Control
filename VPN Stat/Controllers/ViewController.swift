@@ -29,6 +29,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var onOff: UISwitch!
     
+    @IBOutlet weak var uptimeLabel: UILabel!
+    
     @IBAction func onOffVPN(_ sender: Any) {
         
         if onOff.isOn == true {
@@ -52,6 +54,7 @@ class ViewController: UIViewController {
 
                 let statusJSON = JSON(response.result.value!)
                 self.updateStatus(json: statusJSON)
+                self.updateUptime(json: statusJSON)
                 self.refreshButton.hideLoading()
                 self.onOff.isEnabled = true
             }
@@ -96,7 +99,7 @@ class ViewController: UIViewController {
     
     func updateStatus(json: JSON) {
         
-        if let status = json["InstanceStatuses"][0]["InstanceState"]["Name"].string {
+        if let status = json["Reservations"][0]["Instances"][0]["State"]["Name"].string {
             
             print(status)
             
@@ -104,9 +107,26 @@ class ViewController: UIViewController {
             
             
         } else {
-
+            
             print("Error parsing JSON")
             self.statusLabel.text = "Error getting status"
+        }
+        
+    }
+    
+    func updateUptime(json: JSON) {
+        
+        if let uptime = json["Reservations"][0]["Instances"][0]["LaunchTime"].string {
+            
+            print(uptime)
+            
+            self.uptimeLabel.text = uptime
+            
+            
+        } else {
+            
+            print("Error parsing JSON")
+            self.statusLabel.text = "Error getting uptime"
         }
         
     }
