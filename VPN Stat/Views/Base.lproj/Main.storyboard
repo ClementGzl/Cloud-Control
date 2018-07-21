@@ -117,6 +117,13 @@
                                     <action selector="onOffVPN:" destination="BYZ-38-t0r" eventType="valueChanged" id="l4V-Jp-zQP"/>
                                 </connections>
                             </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="../../.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y28-YN-9Hc">
+                                <rect key="frame" x="33" y="167" width="349" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.74740070600140052" green="0.92525181531750977" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -140,6 +147,7 @@
                         <outlet property="onOff" destination="MH8-60-YrU" id="Zqe-Lq-CMh"/>
                         <outlet property="refreshButton" destination="9Jc-k5-Rgp" id="Qoo-tH-YIj"/>
                         <outlet property="statusLabel" destination="huY-LJ-U78" id="aOR-aa-Bwb"/>
+                        <outlet property="uptimeLabel" destination="y28-YN-9Hc" id="Hev-QP-3Dt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
