@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08611CAE2103932200F746C9 /* Constants.secret.swift.example in Resources */ = {isa = PBXBuildFile; fileRef = 08611CAD2103932200F746C9 /* Constants.secret.swift.example */; };
 		6192F25F3970B5A131AEAA9C /* Pods_VPN_Stat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A355F7D5CC69F86A015868 /* Pods_VPN_Stat.framework */; };
 		EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC002101FDE50084CC59 /* AuthViewController.swift */; };
 		EB0CAC0321020EFE0084CC59 /* TouchIDAuthentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08611CAD2103932200F746C9 /* Constants.secret.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Constants.secret.swift.example; sourceTree = "<group>"; };
 		16A355F7D5CC69F86A015868 /* Pods_VPN_Stat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VPN_Stat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3834B2F72D5B7135AF8C52C2 /* Pods-VPN Stat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VPN Stat.release.xcconfig"; path = "Pods/Target Support Files/Pods-VPN Stat/Pods-VPN Stat.release.xcconfig"; sourceTree = "<group>"; };
 		51741FE489493E26DE94F1E2 /* Pods-VPN Stat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VPN Stat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VPN Stat/Pods-VPN Stat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				EB8452E22101E8E6001D26BD /* Constants.secret.swift */,
 				EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */,
+				08611CAD2103932200F746C9 /* Constants.secret.swift.example */,
 				EBD3331E210233B50018232C /* LoadingButton.swift */,
 			);
 			path = "Data model";
@@ -184,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08611CAE2103932200F746C9 /* Constants.secret.swift.example in Resources */,
 				EBB7893620F37644006BDBF6 /* LaunchScreen.storyboard in Resources */,
 				EBB7893320F37644006BDBF6 /* Assets.xcassets in Resources */,
 				EBB7893120F37643006BDBF6 /* Main.storyboard in Resources */,
