@@ -19,9 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="ZgI-0O-mUB">
-                                <rect key="frame" x="148" y="30.000000000000007" width="117.66666666666669" height="117.66666666666669"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tze-lu-HTY">
                                 <rect key="frame" x="146" y="307.66666666666669" width="122" height="121"/>
                                 <constraints>
@@ -33,8 +30,11 @@
                                     <action selector="touchIDLoginAction" destination="uV9-V8-wGw" eventType="touchUpInside" id="dED-rE-eLE"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="ZgI-0O-mUB">
+                                <rect key="frame" x="149" y="63.000000000000007" width="118" height="117.66666666666669"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKB-Xr-qow">
-                                <rect key="frame" x="21" y="177.66666666666666" width="371.66666666666669" height="35"/>
+                                <rect key="frame" x="22" y="210.66666666666666" width="372" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Jgf-am-Cqm"/>
                                 </constraints>
@@ -45,15 +45,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.039215686270000001" green="0.25882352939999997" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ZgI-0O-mUB" firstAttribute="top" secondItem="tGh-yw-o5d" secondAttribute="top" constant="10" id="2FB-6u-VoQ"/>
-                            <constraint firstItem="ZgI-0O-mUB" firstAttribute="centerX" secondItem="tze-lu-HTY" secondAttribute="centerX" id="GWV-NG-xTY"/>
-                            <constraint firstItem="hKB-Xr-qow" firstAttribute="leading" secondItem="tGh-yw-o5d" secondAttribute="leading" constant="21" id="I2m-Wc-HLo"/>
-                            <constraint firstItem="ZgI-0O-mUB" firstAttribute="leading" secondItem="tGh-yw-o5d" secondAttribute="leading" constant="148" id="iJf-3K-uia"/>
+                            <constraint firstItem="hKB-Xr-qow" firstAttribute="leading" secondItem="tGh-yw-o5d" secondAttribute="leading" constant="22" id="I2m-Wc-HLo"/>
+                            <constraint firstItem="ZgI-0O-mUB" firstAttribute="top" secondItem="tGh-yw-o5d" secondAttribute="top" constant="43" id="LXo-DO-XkX"/>
+                            <constraint firstItem="ZgI-0O-mUB" firstAttribute="leading" secondItem="tGh-yw-o5d" secondAttribute="leading" constant="149" id="iNg-ra-gyR"/>
                             <constraint firstItem="tze-lu-HTY" firstAttribute="centerX" secondItem="OD8-sz-4eg" secondAttribute="centerX" id="lVX-cO-Wfn"/>
-                            <constraint firstItem="tze-lu-HTY" firstAttribute="top" secondItem="hKB-Xr-qow" secondAttribute="bottom" constant="95" id="ocg-n1-kdC"/>
-                            <constraint firstItem="hKB-Xr-qow" firstAttribute="top" secondItem="ZgI-0O-mUB" secondAttribute="bottom" constant="30" id="pkN-KM-le2"/>
+                            <constraint firstItem="tze-lu-HTY" firstAttribute="top" secondItem="hKB-Xr-qow" secondAttribute="bottom" constant="61.666666666666686" id="ocg-n1-kdC"/>
+                            <constraint firstItem="ZgI-0O-mUB" firstAttribute="centerX" secondItem="hKB-Xr-qow" secondAttribute="centerX" id="sE6-Ly-Fiq"/>
                             <constraint firstItem="tze-lu-HTY" firstAttribute="centerY" secondItem="OD8-sz-4eg" secondAttribute="centerY" id="y2b-Tl-HJO"/>
-                            <constraint firstItem="hKB-Xr-qow" firstAttribute="centerX" secondItem="ZgI-0O-mUB" secondAttribute="centerX" id="yk4-jd-Cxk"/>
+                            <constraint firstItem="tGh-yw-o5d" firstAttribute="trailing" secondItem="ZgI-0O-mUB" secondAttribute="trailing" constant="147" id="yod-qC-Ge5"/>
+                            <constraint firstItem="hKB-Xr-qow" firstAttribute="top" secondItem="ZgI-0O-mUB" secondAttribute="bottom" constant="30" id="zgb-xf-Wge"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tGh-yw-o5d"/>
                     </view>
