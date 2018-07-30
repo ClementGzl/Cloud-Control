@@ -86,7 +86,7 @@ class TableViewController: UITableViewController {
 
         Alamofire.request(url, method: .get, headers: headers)
         SVProgressHUD.show()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             // Your code with delay
             self.getStatus(url: secretStatusURL)
         }
@@ -98,7 +98,7 @@ class TableViewController: UITableViewController {
         
         Alamofire.request(url, method: .get, headers: headers)
         SVProgressHUD.show()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             // Your code with delay
             self.getStatus(url: secretStatusURL)
         }
