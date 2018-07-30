@@ -9,8 +9,9 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
-class ViewController: UIViewController {
+class TableViewController: UITableViewController {
 
     let statusURL = secretStatusURL
     let startURL = secretStartURL
@@ -21,27 +22,30 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         getStatus(url: statusURL)
-        refreshButton.showLoading()
+        SVProgressHUD.show()
         onOff.isEnabled = false
+        uptimeLabel.text = ""
     }
     
-    @IBOutlet var statusLabel: UILabel!
-    
-    @IBOutlet weak var onOff: UISwitch!
+    @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var uptimeLabel: UILabel!
+    
+    @IBOutlet weak var onOff: UISwitch!
     
     @IBAction func onOffVPN(_ sender: Any) {
         
         if onOff.isOn == true {
-            print("ON")
-            startInstance(url: startURL)
-        } else {
-            print("OFF")
-            stopInstance(url: stopURL)
+        print("ON")
+        startInstance(url: startURL)
+    } else {
+        print("OFF")
+        stopInstance(url: stopURL)
+        onOff.isOn = false
         }
         
     }
+   
     //MARK: - Networking
     
     func getStatus(url : String) {
@@ -55,41 +59,49 @@ class ViewController: UIViewController {
                 let statusJSON = JSON(response.result.value!)
                 self.updateStatus(json: statusJSON)
                 self.updateUptime(json: statusJSON)
-                self.refreshButton.hideLoading()
-                self.onOff.isEnabled = true
+                SVProgressHUD.dismiss()
             }
 
             else {
                 print("Error geting status, \(response.result.error!)")
-                self.refreshButton.hideLoading()
+                SVProgressHUD.dismiss()
                 self.statusLabel.text = "Error getting status"
-                self.onOff.isEnabled = false
             }
             
         }
         
     }
    
-    @IBOutlet weak var refreshButton: LoadingButton!
+//    @IBOutlet weak var refreshButton: LoadingButton!
     
 
     @IBAction func refreshStatus(_ sender: Any) {
-        refreshButton.showLoading()
+        SVProgressHUD.show()
         statusLabel.text = "..."
+        statusLabel.textColor = UIColor.darkText
         getStatus(url: statusURL)
     }
     
     func startInstance(url : String) {
 
         Alamofire.request(url, method: .get, headers: headers)
-        getStatus(url: secretStatusURL)
+        SVProgressHUD.show()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            // Your code with delay
+            self.getStatus(url: secretStatusURL)
+        }
+        
         
     }
     
     func stopInstance(url : String) {
         
         Alamofire.request(url, method: .get, headers: headers)
-        getStatus(url: secretStatusURL)
+        SVProgressHUD.show()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            // Your code with delay
+            self.getStatus(url: secretStatusURL)
+        }
         
     }
     
@@ -103,13 +115,33 @@ class ViewController: UIViewController {
             
             print(status)
             
-            self.statusLabel.text = status
+            self.statusLabel.text = status.capitalized
             
+            if self.statusLabel.text == "Running" {
+                self.statusLabel.textColor = UIColor.green
+                self.onOff.isOn = true
+                self.onOff.isEnabled = true
+            } else if self.statusLabel.text == "Pending" {
+                self.statusLabel.textColor = UIColor.orange
+                self.onOff.isOn = true
+                self.onOff.isEnabled = false
+            } else if self.statusLabel.text == "Stopping" {
+                self.statusLabel.textColor = UIColor.orange
+                self.onOff.isOn = false
+                self.onOff.isEnabled = false
+            } else {
+                self.statusLabel.textColor = UIColor.darkText
+                self.onOff.isEnabled = true
+                self.uptimeLabel.text = ""
+            }
+            
+            tableView.reloadData()
             
         } else {
             
             print("Error parsing JSON")
             self.statusLabel.text = "Error getting status"
+            self.statusLabel.textColor = UIColor.red
         }
         
     }
@@ -118,10 +150,18 @@ class ViewController: UIViewController {
         
         if let uptime = json["Reservations"][0]["Instances"][0]["LaunchTime"].string {
             
-            print(uptime)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+
+            guard let dateFromString = dateFormatter.date(from: uptime) else {return}
+
+            dateFormatter.dateFormat = "dd/MM/yyyy' at 'HH:mm"
             
-            self.uptimeLabel.text = uptime
+            self.uptimeLabel.text = "Started: \(dateFormatter.string(from: dateFromString))"
             
+            if self.statusLabel.text == "Stopped" {
+                self.uptimeLabel.text = ""
+            }
             
         } else {
             
@@ -130,5 +170,5 @@ class ViewController: UIViewController {
         }
         
     }
+    
 }
-

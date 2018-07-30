@@ -13,7 +13,7 @@
 		EB0CAC0321020EFE0084CC59 /* TouchIDAuthentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */; };
 		EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8452E22101E8E6001D26BD /* Constants.secret.swift */; };
 		EBB7892C20F37643006BDBF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7892B20F37643006BDBF6 /* AppDelegate.swift */; };
-		EBB7892E20F37643006BDBF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7892D20F37643006BDBF6 /* ViewController.swift */; };
+		EBB7892E20F37643006BDBF6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7892D20F37643006BDBF6 /* TableViewController.swift */; };
 		EBB7893120F37643006BDBF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB7892F20F37643006BDBF6 /* Main.storyboard */; };
 		EBB7893320F37644006BDBF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB7893220F37644006BDBF6 /* Assets.xcassets */; };
 		EBB7893620F37644006BDBF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB7893420F37644006BDBF6 /* LaunchScreen.storyboard */; };
@@ -30,7 +30,7 @@
 		EB8452E22101E8E6001D26BD /* Constants.secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.secret.swift; sourceTree = "<group>"; };
 		EBB7892820F37643006BDBF6 /* VPN Stat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VPN Stat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB7892B20F37643006BDBF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EBB7892D20F37643006BDBF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EBB7892D20F37643006BDBF6 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		EBB7893020F37643006BDBF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBB7893220F37644006BDBF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBB7893520F37644006BDBF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		EB8452E62101E91C001D26BD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EBB7892D20F37643006BDBF6 /* ViewController.swift */,
+				EBB7892D20F37643006BDBF6 /* TableViewController.swift */,
 				EB0CAC002101FDE50084CC59 /* AuthViewController.swift */,
 			);
 			path = Controllers;
@@ -223,11 +223,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-VPN Stat/Pods-VPN Stat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,7 +247,7 @@
 				EBD3331F210233B50018232C /* LoadingButton.swift in Sources */,
 				EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */,
 				EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */,
-				EBB7892E20F37643006BDBF6 /* ViewController.swift in Sources */,
+				EBB7892E20F37643006BDBF6 /* TableViewController.swift in Sources */,
 				EBB7892C20F37643006BDBF6 /* AppDelegate.swift in Sources */,
 				EB0CAC0321020EFE0084CC59 /* TouchIDAuthentification.swift in Sources */,
 			);
