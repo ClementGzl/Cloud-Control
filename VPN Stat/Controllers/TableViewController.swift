@@ -10,14 +10,18 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SVProgressHUD
+//import PullToRefreshKit
+
 
 class TableViewController: UITableViewController {
 
+    
     let statusURL = secretStatusURL
     let startURL = secretStartURL
     let stopURL = secretStopURL
     let headers: HTTPHeaders = ["x-api-key": secretApiKey]
-
+    var refresher: UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +29,12 @@ class TableViewController: UITableViewController {
         SVProgressHUD.show()
         onOff.isEnabled = false
         uptimeLabel.text = ""
+
+        refresher = UIRefreshControl()
+        refresher.tintColor = .white
+        refresher.addTarget(self, action: #selector(TableViewController.pullRefreshStatus), for: UIControlEvents.valueChanged)
+        tableView.refreshControl = refresher
+        
     }
     
     @IBOutlet weak var statusLabel: UILabel!
@@ -34,6 +44,9 @@ class TableViewController: UITableViewController {
     @IBOutlet weak var onOff: UISwitch!
     
     @IBAction func onOffVPN(_ sender: Any) {
+        
+        let generator = UISelectionFeedbackGenerator()
+        generator.selectionChanged()
         
         if onOff.isOn == true {
         print("ON")
@@ -45,10 +58,20 @@ class TableViewController: UITableViewController {
         }
         
     }
+    
+    @IBAction func goToinfo(_ sender: Any) {
+        performSegue(withIdentifier: "goToInfo", sender: self)
+    }
+    
+    
    
     //MARK: - Networking
     
-    func getStatus(url : String) {
+    @objc func pullRefreshStatus() {
+        self.getStatus(url: self.statusURL)
+    }
+    
+    @objc func getStatus(url : String) {
         
         Alamofire.request(url, method: .get, headers: headers).responseJSON {
             response in
@@ -60,26 +83,18 @@ class TableViewController: UITableViewController {
                 self.updateStatus(json: statusJSON)
                 self.updateUptime(json: statusJSON)
                 SVProgressHUD.dismiss()
+                self.refresher.endRefreshing()
             }
 
             else {
                 print("Error geting status, \(response.result.error!)")
                 SVProgressHUD.dismiss()
+                self.refresher.endRefreshing()
                 self.statusLabel.text = "Error getting status"
             }
             
         }
         
-    }
-   
-//    @IBOutlet weak var refreshButton: LoadingButton!
-    
-
-    @IBAction func refreshStatus(_ sender: Any) {
-        SVProgressHUD.show()
-        statusLabel.text = "..."
-        statusLabel.textColor = UIColor.darkText
-        getStatus(url: statusURL)
     }
     
     func startInstance(url : String) {
@@ -99,7 +114,7 @@ class TableViewController: UITableViewController {
         Alamofire.request(url, method: .get, headers: headers)
         SVProgressHUD.show()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            // Your code with delay
+
             self.getStatus(url: secretStatusURL)
         }
         

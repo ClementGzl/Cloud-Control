@@ -9,5 +9,6 @@ target 'VPN Stat' do
 pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'SVProgressHUD'
+pod 'PullToRefreshKit'
 
 end
