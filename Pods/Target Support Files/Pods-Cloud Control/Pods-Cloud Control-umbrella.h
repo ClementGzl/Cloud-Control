@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double PullToRefreshKitVersionNumber;
-FOUNDATION_EXPORT const unsigned char PullToRefreshKitVersionString[];
+FOUNDATION_EXPORT double Pods_Cloud_ControlVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Cloud_ControlVersionString[];
 

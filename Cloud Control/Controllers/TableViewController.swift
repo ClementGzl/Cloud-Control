@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SVProgressHUD
-//import PullToRefreshKit
+
 
 
 class TableViewController: UITableViewController {

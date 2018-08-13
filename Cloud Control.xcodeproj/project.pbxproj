@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08611CAE2103932200F746C9 /* Constants.secret.swift.example in Resources */ = {isa = PBXBuildFile; fileRef = 08611CAD2103932200F746C9 /* Constants.secret.swift.example */; };
-		6192F25F3970B5A131AEAA9C /* Pods_VPN_Stat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16A355F7D5CC69F86A015868 /* Pods_VPN_Stat.framework */; };
+		A8EAC07A712D6BD52E290EFE /* Pods_Cloud_Control.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E1ABC405ACE996A82F17FD /* Pods_Cloud_Control.framework */; };
 		EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC002101FDE50084CC59 /* AuthViewController.swift */; };
 		EB0CAC0321020EFE0084CC59 /* TouchIDAuthentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */; };
 		EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8452E22101E8E6001D26BD /* Constants.secret.swift */; };
@@ -23,12 +23,15 @@
 /* Begin PBXFileReference section */
 		08611CAD2103932200F746C9 /* Constants.secret.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Constants.secret.swift.example; sourceTree = "<group>"; };
 		16A355F7D5CC69F86A015868 /* Pods_VPN_Stat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VPN_Stat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B9E87E66283D683B7138180 /* Pods-Cloud Control.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloud Control.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cloud Control/Pods-Cloud Control.release.xcconfig"; sourceTree = "<group>"; };
+		20956C3ED73A90CA0F5152E4 /* Pods-Cloud Control.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloud Control.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cloud Control/Pods-Cloud Control.debug.xcconfig"; sourceTree = "<group>"; };
 		3834B2F72D5B7135AF8C52C2 /* Pods-VPN Stat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VPN Stat.release.xcconfig"; path = "Pods/Target Support Files/Pods-VPN Stat/Pods-VPN Stat.release.xcconfig"; sourceTree = "<group>"; };
 		51741FE489493E26DE94F1E2 /* Pods-VPN Stat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VPN Stat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VPN Stat/Pods-VPN Stat.debug.xcconfig"; sourceTree = "<group>"; };
+		D0E1ABC405ACE996A82F17FD /* Pods_Cloud_Control.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloud_Control.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0CAC002101FDE50084CC59 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIDAuthentification.swift; sourceTree = "<group>"; };
 		EB8452E22101E8E6001D26BD /* Constants.secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.secret.swift; sourceTree = "<group>"; };
-		EBB7892820F37643006BDBF6 /* VPN Stat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VPN Stat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBB7892820F37643006BDBF6 /* Cloud Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cloud Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB7892B20F37643006BDBF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBB7892D20F37643006BDBF6 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		EBB7893020F37643006BDBF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6192F25F3970B5A131AEAA9C /* Pods_VPN_Stat.framework in Frameworks */,
+				A8EAC07A712D6BD52E290EFE /* Pods_Cloud_Control.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +58,8 @@
 			children = (
 				51741FE489493E26DE94F1E2 /* Pods-VPN Stat.debug.xcconfig */,
 				3834B2F72D5B7135AF8C52C2 /* Pods-VPN Stat.release.xcconfig */,
+				20956C3ED73A90CA0F5152E4 /* Pods-Cloud Control.debug.xcconfig */,
+				1B9E87E66283D683B7138180 /* Pods-Cloud Control.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -90,7 +95,7 @@
 		EBB7891F20F37643006BDBF6 = {
 			isa = PBXGroup;
 			children = (
-				EBB7892A20F37643006BDBF6 /* VPN Stat */,
+				EBB7892A20F37643006BDBF6 /* Cloud Control */,
 				EBB7892920F37643006BDBF6 /* Products */,
 				6B690EA606E5AB95AAB2F396 /* Pods */,
 				F02F3D9C63406BE0620CC14A /* Frameworks */,
@@ -100,12 +105,12 @@
 		EBB7892920F37643006BDBF6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EBB7892820F37643006BDBF6 /* VPN Stat.app */,
+				EBB7892820F37643006BDBF6 /* Cloud Control.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EBB7892A20F37643006BDBF6 /* VPN Stat */ = {
+		EBB7892A20F37643006BDBF6 /* Cloud Control */ = {
 			isa = PBXGroup;
 			children = (
 				EBB7892B20F37643006BDBF6 /* AppDelegate.swift */,
@@ -116,13 +121,14 @@
 				EBB7893420F37644006BDBF6 /* LaunchScreen.storyboard */,
 				EBB7893720F37644006BDBF6 /* Info.plist */,
 			);
-			path = "VPN Stat";
+			path = "Cloud Control";
 			sourceTree = "<group>";
 		};
 		F02F3D9C63406BE0620CC14A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				16A355F7D5CC69F86A015868 /* Pods_VPN_Stat.framework */,
+				D0E1ABC405ACE996A82F17FD /* Pods_Cloud_Control.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -130,9 +136,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EBB7892720F37643006BDBF6 /* VPN Stat */ = {
+		EBB7892720F37643006BDBF6 /* Cloud Control */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EBB7893A20F37644006BDBF6 /* Build configuration list for PBXNativeTarget "VPN Stat" */;
+			buildConfigurationList = EBB7893A20F37644006BDBF6 /* Build configuration list for PBXNativeTarget "Cloud Control" */;
 			buildPhases = (
 				0277F82999C034F57C252D57 /* [CP] Check Pods Manifest.lock */,
 				EBB7892420F37643006BDBF6 /* Sources */,
@@ -144,9 +150,9 @@
 			);
 			dependencies = (
 			);
-			name = "VPN Stat";
+			name = "Cloud Control";
 			productName = "VPN Stat";
-			productReference = EBB7892820F37643006BDBF6 /* VPN Stat.app */;
+			productReference = EBB7892820F37643006BDBF6 /* Cloud Control.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -164,7 +170,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EBB7892320F37643006BDBF6 /* Build configuration list for PBXProject "VPN Stat" */;
+			buildConfigurationList = EBB7892320F37643006BDBF6 /* Build configuration list for PBXProject "Cloud Control" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -177,7 +183,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EBB7892720F37643006BDBF6 /* VPN Stat */,
+				EBB7892720F37643006BDBF6 /* Cloud Control */,
 			);
 		};
 /* End PBXProject section */
@@ -208,7 +214,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VPN Stat-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Cloud Control-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -221,22 +227,20 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-VPN Stat/Pods-VPN Stat-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Cloud Control/Pods-Cloud Control-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/PullToRefreshKit/PullToRefreshKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToRefreshKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VPN Stat/Pods-VPN Stat-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cloud Control/Pods-Cloud Control-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -393,17 +397,17 @@
 		};
 		EBB7893B20F37644006BDBF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51741FE489493E26DE94F1E2 /* Pods-VPN Stat.debug.xcconfig */;
+			baseConfigurationReference = 20956C3ED73A90CA0F5152E4 /* Pods-Cloud Control.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y7B9KSH38L;
-				INFOPLIST_FILE = "VPN Stat/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Cloud Control/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.clement.VPN-Stat";
+				PRODUCT_BUNDLE_IDENTIFIER = com.clement.CloudControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -412,17 +416,17 @@
 		};
 		EBB7893C20F37644006BDBF6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3834B2F72D5B7135AF8C52C2 /* Pods-VPN Stat.release.xcconfig */;
+			baseConfigurationReference = 1B9E87E66283D683B7138180 /* Pods-Cloud Control.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y7B9KSH38L;
-				INFOPLIST_FILE = "VPN Stat/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Cloud Control/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.clement.VPN-Stat";
+				PRODUCT_BUNDLE_IDENTIFIER = com.clement.CloudControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -432,7 +436,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EBB7892320F37643006BDBF6 /* Build configuration list for PBXProject "VPN Stat" */ = {
+		EBB7892320F37643006BDBF6 /* Build configuration list for PBXProject "Cloud Control" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EBB7893820F37644006BDBF6 /* Debug */,
@@ -441,7 +445,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EBB7893A20F37644006BDBF6 /* Build configuration list for PBXNativeTarget "VPN Stat" */ = {
+		EBB7893A20F37644006BDBF6 /* Build configuration list for PBXNativeTarget "Cloud Control" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EBB7893B20F37644006BDBF6 /* Debug */,
