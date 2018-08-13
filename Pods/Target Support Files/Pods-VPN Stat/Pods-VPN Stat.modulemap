@@ -1,6 +1,0 @@
-framework module Pods_VPN_Stat {
-  umbrella header "Pods-VPN Stat-umbrella.h"
-
-  export *
-  module * { export * }
-}

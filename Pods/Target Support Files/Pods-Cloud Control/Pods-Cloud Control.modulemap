@@ -1,0 +1,6 @@
+framework module Pods_Cloud_Control {
+  umbrella header "Pods-Cloud Control-umbrella.h"
+
+  export *
+  module * { export * }
+}

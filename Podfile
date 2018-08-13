@@ -1,14 +1,14 @@
-project 'VPN Stat.xcodeproj'
+project 'Cloud Control.xcodeproj'
 
 platform :ios, '9.0'
 
-target 'VPN Stat' do
+target 'Cloud Control' do
 
   use_frameworks!
 
 pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'SVProgressHUD'
-pod 'PullToRefreshKit'
+
 
 end
