@@ -11,7 +11,11 @@
 		A8EAC07A712D6BD52E290EFE /* Pods_Cloud_Control.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E1ABC405ACE996A82F17FD /* Pods_Cloud_Control.framework */; };
 		EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC002101FDE50084CC59 /* AuthViewController.swift */; };
 		EB0CAC0321020EFE0084CC59 /* TouchIDAuthentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */; };
+		EB75BEB52125E2B9003C99A5 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75BEB42125E2B9003C99A5 /* Test.swift */; };
 		EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8452E22101E8E6001D26BD /* Constants.secret.swift */; };
+		EBA26CE32124DA34009AACA7 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA26CE22124DA34009AACA7 /* Instance.swift */; };
+		EBA26CE62124F956009AACA7 /* InstanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA26CE42124F956009AACA7 /* InstanceCell.swift */; };
+		EBA26CE72124F956009AACA7 /* InstanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA26CE52124F956009AACA7 /* InstanceCell.xib */; };
 		EBB7892C20F37643006BDBF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7892B20F37643006BDBF6 /* AppDelegate.swift */; };
 		EBB7892E20F37643006BDBF6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7892D20F37643006BDBF6 /* TableViewController.swift */; };
 		EBB7893120F37643006BDBF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB7892F20F37643006BDBF6 /* Main.storyboard */; };
@@ -30,7 +34,11 @@
 		D0E1ABC405ACE996A82F17FD /* Pods_Cloud_Control.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloud_Control.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0CAC002101FDE50084CC59 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIDAuthentification.swift; sourceTree = "<group>"; };
+		EB75BEB42125E2B9003C99A5 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		EB8452E22101E8E6001D26BD /* Constants.secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.secret.swift; sourceTree = "<group>"; };
+		EBA26CE22124DA34009AACA7 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
+		EBA26CE42124F956009AACA7 /* InstanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceCell.swift; sourceTree = "<group>"; };
+		EBA26CE52124F956009AACA7 /* InstanceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstanceCell.xib; sourceTree = "<group>"; };
 		EBB7892820F37643006BDBF6 /* Cloud Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cloud Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB7892B20F37643006BDBF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBB7892D20F37643006BDBF6 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				EBB7892F20F37643006BDBF6 /* Main.storyboard */,
+				EBA26CE42124F956009AACA7 /* InstanceCell.swift */,
+				EBA26CE52124F956009AACA7 /* InstanceCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -79,6 +89,8 @@
 				EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */,
 				08611CAD2103932200F746C9 /* Constants.secret.swift.example */,
 				EBD3331E210233B50018232C /* LoadingButton.swift */,
+				EBA26CE22124DA34009AACA7 /* Instance.swift */,
+				EB75BEB42125E2B9003C99A5 /* Test.swift */,
 			);
 			path = "Data model";
 			sourceTree = "<group>";
@@ -194,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08611CAE2103932200F746C9 /* Constants.secret.swift.example in Resources */,
+				EBA26CE72124F956009AACA7 /* InstanceCell.xib in Resources */,
 				EBB7893620F37644006BDBF6 /* LaunchScreen.storyboard in Resources */,
 				EBB7893320F37644006BDBF6 /* Assets.xcassets in Resources */,
 				EBB7893120F37643006BDBF6 /* Main.storyboard in Resources */,
@@ -252,9 +265,12 @@
 			files = (
 				EBD3331F210233B50018232C /* LoadingButton.swift in Sources */,
 				EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */,
+				EB75BEB52125E2B9003C99A5 /* Test.swift in Sources */,
+				EBA26CE62124F956009AACA7 /* InstanceCell.swift in Sources */,
 				EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */,
 				EBB7892E20F37643006BDBF6 /* TableViewController.swift in Sources */,
 				EBB7892C20F37643006BDBF6 /* AppDelegate.swift in Sources */,
+				EBA26CE32124DA34009AACA7 /* Instance.swift in Sources */,
 				EB0CAC0321020EFE0084CC59 /* TouchIDAuthentification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,7 +424,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clement.CloudControl;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Cloud Control";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -427,7 +443,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clement.CloudControl;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Cloud Control";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
