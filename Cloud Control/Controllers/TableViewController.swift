@@ -11,8 +11,6 @@ import Alamofire
 import SwiftyJSON
 import SVProgressHUD
 
-
-
 class TableViewController: UITableViewController {
 
     var instancesArray = [Instance]()
@@ -28,15 +26,9 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UINib(nibName: "InstanceCell", bundle: nil), forCellReuseIdentifier: "customInstanceCell")
+        tableView.register(UINib(nibName: "instanceCell", bundle: nil), forCellReuseIdentifier: "customInstanceCell")
         
         getStatus(url: listURL)
-        
-        var testObject = Test()
-        
-        testObject.name = "blabla"
-        
-        print(testObject)
 
         SVProgressHUD.show()
 
@@ -44,7 +36,7 @@ class TableViewController: UITableViewController {
         refresher.tintColor = .white
         refresher.addTarget(self, action: #selector(TableViewController.pullRefreshStatus), for: UIControlEvents.valueChanged)
         tableView.refreshControl = refresher
-        
+      
     }
     
     @IBAction func goToinfo(_ sender: Any) {
@@ -53,21 +45,29 @@ class TableViewController: UITableViewController {
     
     //MARK: - Tableview Datasource
     
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return instancesArray.count
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "InstanceCell", for: indexPath) as! InstanceCell
-//        cell.statusLabel.text = instancesArray[indexPath.row].status
-//
-//        return cell
-//    }
-   
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return instancesArray.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "instanceCell", for: indexPath) as! InstanceCell
+        cell.nameLabel.text = instancesArray[indexPath.row].name
+        cell.statusLabel.text = instancesArray[indexPath.row].status
+        cell.launchTimeLabel.text = instancesArray[indexPath.row].launchTime
+
+        cell.delegate = self
+
+        return cell
+    }
+
     //MARK: - Networking
     
     @objc func pullRefreshStatus() {
-//        self.getStatus(url: self.statusURL)
+        
+        instancesArray = []
+        
+        self.getStatus(url: listURL)
     }
     
     func getInstancesList(url: String) {
@@ -121,65 +121,94 @@ class TableViewController: UITableViewController {
         
     }
     
-    func startInstance(url : String) {
-
-        Alamofire.request(url, method: .get, headers: headers)
+    func actionInstance(url: String, instance: Instance, action : String) -> String {
+        
+        let instance = instance
+        print(instance.id)
+        let actionParams : Parameters = [
+            "region" : instance.region,
+            "id" : instance.id,
+            "action" : action
+        ]
+        
         SVProgressHUD.show()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            // Your code with delay
-            self.getStatus(url: self.instanceURL)
+        
+        let requestInstance = Alamofire.request(url, method: .patch, parameters: actionParams, encoding: URLEncoding.queryString, headers: headers).responseJSON { (response) in
+            if response.result.isSuccess {
+
+                let newStatusJSON = JSON(response.result.value!)
+                
+                var parameterType = ""
+                
+                if action == "start" {
+                    parameterType = "StartingInstances"
+                } else {
+                    parameterType = "StoppingInstances"
+                }
+                
+                if let newStatus = newStatusJSON[parameterType][0]["CurrentState"]["Name"].string?.capitalized {
+                    instance.status = newStatus
+                    print("Success changing action instance \(instance.id)")
+                    SVProgressHUD.dismiss()
+                    self.tableView.reloadData()
+                } else {
+                    instance.status = "Error getting status"
+                    print("Error updating status from actionInstance")
+                    SVProgressHUD.dismiss()
+                    self.tableView.reloadData()
+                }
+                
+            }
+    
         }
         
+        self.refresher.endRefreshing()
+        print(requestInstance)
+        return instance.status
         
     }
-    
-    func stopInstance(url : String) {
-        
-        Alamofire.request(url, method: .get, headers: headers)
-        SVProgressHUD.show()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-
-            self.getStatus(url: self.instanceURL)
-        }
-        
-    }
-    
-    
     
     //MARK: - JSON Parsing
     
     func updateInstancesArray(json: JSON) {
         
-        var temporaryInstance = Instance()
-        
+
         for (key,subJson):(String, JSON) in json {
-            // Do something you want
+            
             print("There is an object")
+
             if let id = subJson["InstanceId"].string {
+                
+                let temporaryInstance = Instance()
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+                
+                guard let dateFromString = dateFormatter.date(from: subJson["LaunchTime"].stringValue) else {return}
+                
+                dateFormatter.dateFormat = "dd/MM/yyyy' at 'HH:mm"
+                
+                var region : String = subJson["Placement"]["AvailabilityZone"].stringValue
                 temporaryInstance.id = id
-                temporaryInstance.launchTime = subJson["LaunchTime"].stringValue
+                temporaryInstance.launchTime = "Started: \(dateFormatter.string(from: dateFromString))"
                 temporaryInstance.name = id
+                region.remove(at: region.index(before: region.endIndex))
+                temporaryInstance.region = region
                 var statusCode = Int()
                 statusCode = subJson["State"]["Code"].intValue
                 
-                switch statusCode {
-                case 0 :
-                    temporaryInstance.status = "Pending"
-                case 16 :
-                    temporaryInstance.status = "Running"
-                case 32 :
-                    temporaryInstance.status = "Shutting down"
-                case 48 :
-                    temporaryInstance.status = "Terminated"
-                case 64 :
-                    temporaryInstance.status = "Stopping"
-                case 80 :
-                    temporaryInstance.status = "Stopped"
-                default:
-                    temporaryInstance.status = "Error getting status"
+                for (_,value) in subJson["Tags"] {
+
+                    if value["Key"] == "Name" {
+                        temporaryInstance.name = value["Value"].string!
+                    }
                 }
                 
-                instancesArray.append(temporaryInstance)
+                temporaryInstance.status = formatStatusCode(code: statusCode)
+                
+                if temporaryInstance.status != "Terminated" {
+                    instancesArray.append(temporaryInstance)
+                }
                 
                 print("Success updating instances array")
                 
@@ -188,71 +217,46 @@ class TableViewController: UITableViewController {
             }
             
         }
-        print(instancesArray)
             
-        }
-        
     }
     
-//    func updateStatus(json: JSON) {
-//
-//        if let status = json["Reservations"][0]["Instances"][0]["State"]["Name"].string {
-//
-//            print(status)
-//
-////            self.statusLabel.text = status.capitalized
-////
-////            if self.statusLabel.text == "Running" {
-////                self.statusLabel.textColor = UIColor.green
-////                self.onOff.isOn = true
-////                self.onOff.isEnabled = true
-////            } else if self.statusLabel.text == "Pending" {
-////                self.statusLabel.textColor = UIColor.orange
-////                self.onOff.isOn = true
-////                self.onOff.isEnabled = false
-////            } else if self.statusLabel.text == "Stopping" {
-////                self.statusLabel.textColor = UIColor.orange
-////                self.onOff.isOn = false
-////                self.onOff.isEnabled = false
-////            } else {
-////                self.statusLabel.textColor = UIColor.darkText
-////                self.onOff.isEnabled = true
-////                self.uptimeLabel.text = ""
-////            }
-//
-//            tableView.reloadData()
-//
-//        } else {
-//
-//            print("Error parsing JSON")
-////            self.statusLabel.text = "Error getting status"
-////            self.statusLabel.textColor = UIColor.red
-//        }
-//
-//    }
-    
-//    func updateUptime(json: JSON) {
-//
-//        if let uptime = json["Reservations"][0]["Instances"][0]["LaunchTime"].string {
-//
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-//
-//            guard let dateFromString = dateFormatter.date(from: uptime) else {return}
-//
-//            dateFormatter.dateFormat = "dd/MM/yyyy' at 'HH:mm"
-//
-////            self.uptimeLabel.text = "Started: \(dateFormatter.string(from: dateFromString))"
-////
-////            if self.statusLabel.text == "Stopped" {
-////                self.uptimeLabel.text = ""
-//            }
-//
-//        } else {
-//
-//            print("Error parsing JSON")
-////            self.statusLabel.text = "Error getting uptime"
-//        }
-//
-//    }
+    func formatStatusCode(code: Int) -> String {
+        
+        var stringStatus = ""
+        
+        switch code {
+        case 0 :
+            stringStatus = "Pending"
+        case 16 :
+            stringStatus = "Running"
+        case 32 :
+            stringStatus = "Shutting down"
+        case 48 :
+            stringStatus = "Terminated"
+        case 64 :
+            stringStatus = "Stopping"
+        case 80 :
+            stringStatus = "Stopped"
+        default:
+            stringStatus = "Error getting status"
+        }
+        
+        return stringStatus
+        
+    }
+        
+}
 
+extension TableViewController: InstanceCellDelegate {
+    
+    func switchButton(_ cell: InstanceCell, didSwitchButton: UISwitch) {
+        if let indexPath = tableView.indexPath(for: cell) {
+        
+            if cell.switchButton.isOn == true {
+                cell.statusLabel.text = self.actionInstance(url: self.instanceURL, instance: self.instancesArray[indexPath.row], action: "start")
+            } else if cell.switchButton.isOn == false {
+                cell.statusLabel.text = self.actionInstance(url: self.instanceURL, instance: self.instancesArray[indexPath.row], action: "stop")
+            }
+        }
+    }
+}

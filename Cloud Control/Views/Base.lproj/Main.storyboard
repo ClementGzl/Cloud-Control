@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -66,22 +67,68 @@
             </objects>
             <point key="canvasLocation" x="-867" y="33"/>
         </scene>
-        <!--VPN-->
+        <!--Cloud Control-->
         <scene sceneID="rfy-Nn-CZX">
             <objects>
                 <tableViewController id="L3g-zG-WPe" customClass="TableViewController" customModule="Cloud_Control" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vh2-HA-ffg">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vh2-HA-ffg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" red="0.039215686270000001" green="0.25882352939999997" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InstanceCell" rowHeight="70" id="vPe-V9-HOJ">
-                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="instanceCell" rowHeight="116" id="vPe-V9-HOJ" customClass="InstanceCell" customModule="Cloud_Control" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="116"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vPe-V9-HOJ" id="kf4-MU-s3T">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="115.66666666666667"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ll0-Ce-n4E">
+                                            <rect key="frame" x="345" y="42.666666666666664" width="51" height="30.999999999999993"/>
+                                            <connections>
+                                                <action selector="changeInstanceAction:" destination="vPe-V9-HOJ" eventType="valueChanged" id="ChZ-ke-Xh7"/>
+                                            </connections>
+                                        </switch>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="WV2-0n-rc2">
+                                            <rect key="frame" x="20" y="11" width="40" height="94"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7h8-Ht-lLi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="18.666666666666668" height="32"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRn-Ve-ezT">
+                                                    <rect key="frame" x="0.0" y="39" width="18.666666666666668" height="26.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="../../.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICS-e4-6oe">
+                                                    <rect key="frame" x="0.0" y="72.333333333333329" width="40" height="21.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Ll0-Ce-n4E" secondAttribute="trailing" id="83c-Mf-eCI"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="WV2-0n-rc2" secondAttribute="bottom" id="HZn-ud-nYa"/>
+                                        <constraint firstItem="WV2-0n-rc2" firstAttribute="leading" secondItem="kf4-MU-s3T" secondAttribute="leadingMargin" id="U2b-5J-url"/>
+                                        <constraint firstItem="Ll0-Ce-n4E" firstAttribute="centerY" secondItem="kf4-MU-s3T" secondAttribute="centerY" id="WZ4-f8-iMJ"/>
+                                        <constraint firstItem="WV2-0n-rc2" firstAttribute="top" secondItem="kf4-MU-s3T" secondAttribute="topMargin" id="xce-Dr-1pv"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="launchTimeLabel" destination="ICS-e4-6oe" id="1QK-53-UP9"/>
+                                    <outlet property="nameLabel" destination="7h8-Ht-lLi" id="U5L-rU-Jv4"/>
+                                    <outlet property="statusLabel" destination="mRn-Ve-ezT" id="Eml-au-gcL"/>
+                                    <outlet property="switchButton" destination="Ll0-Ce-n4E" id="NI1-8R-wDW"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -90,7 +137,7 @@
                             <outlet property="delegate" destination="L3g-zG-WPe" id="DMz-gh-Bbb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="VPN" id="gDe-hf-HeM">
+                    <navigationItem key="navigationItem" title="Cloud Control" id="gDe-hf-HeM">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Df6-I8-O0o">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" lineBreakMode="middleTruncation" id="8MU-Kt-5ns">
                                 <rect key="frame" x="372" y="11" width="22" height="22"/>
