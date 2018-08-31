@@ -11,6 +11,9 @@
 		A8EAC07A712D6BD52E290EFE /* Pods_Cloud_Control.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E1ABC405ACE996A82F17FD /* Pods_Cloud_Control.framework */; };
 		EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC002101FDE50084CC59 /* AuthViewController.swift */; };
 		EB0CAC0321020EFE0084CC59 /* TouchIDAuthentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */; };
+		EB1228C3212B2DA600AD77E8 /* AWS regions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C2212B2DA600AD77E8 /* AWS regions.swift */; };
+		EB1228C5212B31B100AD77E8 /* RegionFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C4212B31B100AD77E8 /* RegionFilterTableViewController.swift */; };
+		EB1228C7212B371600AD77E8 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C6212B371600AD77E8 /* SettingsTableViewController.swift */; };
 		EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8452E22101E8E6001D26BD /* Constants.secret.swift */; };
 		EBA26CE32124DA34009AACA7 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA26CE22124DA34009AACA7 /* Instance.swift */; };
 		EBB0FE202125E7B600D3FF13 /* InstanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0FE1E2125E7B600D3FF13 /* InstanceCell.swift */; };
@@ -24,14 +27,14 @@
 
 /* Begin PBXFileReference section */
 		08611CAD2103932200F746C9 /* Constants.secret.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Constants.secret.swift.example; sourceTree = "<group>"; };
-		16A355F7D5CC69F86A015868 /* Pods_VPN_Stat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VPN_Stat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B9E87E66283D683B7138180 /* Pods-Cloud Control.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloud Control.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cloud Control/Pods-Cloud Control.release.xcconfig"; sourceTree = "<group>"; };
 		20956C3ED73A90CA0F5152E4 /* Pods-Cloud Control.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloud Control.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cloud Control/Pods-Cloud Control.debug.xcconfig"; sourceTree = "<group>"; };
-		3834B2F72D5B7135AF8C52C2 /* Pods-VPN Stat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VPN Stat.release.xcconfig"; path = "Pods/Target Support Files/Pods-VPN Stat/Pods-VPN Stat.release.xcconfig"; sourceTree = "<group>"; };
-		51741FE489493E26DE94F1E2 /* Pods-VPN Stat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VPN Stat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VPN Stat/Pods-VPN Stat.debug.xcconfig"; sourceTree = "<group>"; };
 		D0E1ABC405ACE996A82F17FD /* Pods_Cloud_Control.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloud_Control.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0CAC002101FDE50084CC59 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIDAuthentification.swift; sourceTree = "<group>"; };
+		EB1228C2212B2DA600AD77E8 /* AWS regions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AWS regions.swift"; sourceTree = "<group>"; };
+		EB1228C4212B31B100AD77E8 /* RegionFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionFilterTableViewController.swift; sourceTree = "<group>"; };
+		EB1228C6212B371600AD77E8 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		EB8452E22101E8E6001D26BD /* Constants.secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.secret.swift; sourceTree = "<group>"; };
 		EBA26CE22124DA34009AACA7 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
 		EBB0FE1E2125E7B600D3FF13 /* InstanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceCell.swift; sourceTree = "<group>"; };
@@ -60,8 +63,6 @@
 		6B690EA606E5AB95AAB2F396 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				51741FE489493E26DE94F1E2 /* Pods-VPN Stat.debug.xcconfig */,
-				3834B2F72D5B7135AF8C52C2 /* Pods-VPN Stat.release.xcconfig */,
 				20956C3ED73A90CA0F5152E4 /* Pods-Cloud Control.debug.xcconfig */,
 				1B9E87E66283D683B7138180 /* Pods-Cloud Control.release.xcconfig */,
 			);
@@ -85,6 +86,7 @@
 				08611CAD2103932200F746C9 /* Constants.secret.swift.example */,
 				EBD3331E210233B50018232C /* LoadingButton.swift */,
 				EBA26CE22124DA34009AACA7 /* Instance.swift */,
+				EB1228C2212B2DA600AD77E8 /* AWS regions.swift */,
 			);
 			path = "Data model";
 			sourceTree = "<group>";
@@ -92,8 +94,10 @@
 		EB8452E62101E91C001D26BD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EBB7892D20F37643006BDBF6 /* TableViewController.swift */,
 				EB0CAC002101FDE50084CC59 /* AuthViewController.swift */,
+				EBB7892D20F37643006BDBF6 /* TableViewController.swift */,
+				EB1228C4212B31B100AD77E8 /* RegionFilterTableViewController.swift */,
+				EB1228C6212B371600AD77E8 /* SettingsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -141,7 +145,6 @@
 		F02F3D9C63406BE0620CC14A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				16A355F7D5CC69F86A015868 /* Pods_VPN_Stat.framework */,
 				D0E1ABC405ACE996A82F17FD /* Pods_Cloud_Control.framework */,
 			);
 			name = Frameworks;
@@ -244,12 +247,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Cloud Control/Pods-Cloud Control-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,8 +270,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBD3331F210233B50018232C /* LoadingButton.swift in Sources */,
+				EB1228C5212B31B100AD77E8 /* RegionFilterTableViewController.swift in Sources */,
 				EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */,
+				EB1228C7212B371600AD77E8 /* SettingsTableViewController.swift in Sources */,
 				EBB0FE202125E7B600D3FF13 /* InstanceCell.swift in Sources */,
+				EB1228C3212B2DA600AD77E8 /* AWS regions.swift in Sources */,
 				EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */,
 				EBB7892E20F37643006BDBF6 /* TableViewController.swift in Sources */,
 				EBB7892C20F37643006BDBF6 /* AppDelegate.swift in Sources */,
