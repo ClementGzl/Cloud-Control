@@ -9,7 +9,6 @@ target 'Cloud Control' do
 pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'SVProgressHUD'
-pod 'SkeletonView'
 
 
 end
