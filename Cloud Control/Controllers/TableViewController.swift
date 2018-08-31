@@ -15,28 +15,37 @@ class TableViewController: UITableViewController {
 
     var instancesArray = [Instance]()
     
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Regions.plist")
+    
     let instanceURL = secretInstanceURL
     let listURL = secretListURL
     let headers: HTTPHeaders = ["x-api-key": secretApiKey]
     var refresher: UIRefreshControl!
     var id : String = ""
     
-    let params = ["regions" : "eu-west-1,eu-west-2,eu-west-3"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.register(UINib(nibName: "instanceCell", bundle: nil), forCellReuseIdentifier: "customInstanceCell")
-        
+        loadRegions()
         getStatus(url: listURL)
 
+        SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.show()
 
         refresher = UIRefreshControl()
         refresher.tintColor = .white
         refresher.addTarget(self, action: #selector(TableViewController.pullRefreshStatus), for: UIControlEvents.valueChanged)
         tableView.refreshControl = refresher
-      
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        SVProgressHUD.show()
+        loadRegions()
+        getStatus(url: listURL)
+
     }
     
     @IBAction func goToinfo(_ sender: Any) {
@@ -65,9 +74,8 @@ class TableViewController: UITableViewController {
     
     @objc func pullRefreshStatus() {
         
-        instancesArray = []
-        
         self.getStatus(url: listURL)
+        
     }
     
     func getInstancesList(url: String) {
@@ -95,6 +103,12 @@ class TableViewController: UITableViewController {
     
     @objc func getStatus(url : String) {
         
+        let selectedRegions = regionsArray.filter { $0.isSelected == true }.map {$0.region}.joined(separator: ",")
+
+        let params = ["regions" : selectedRegions]
+        
+        print(params)
+        
         Alamofire.request(url, method: .get, parameters: params, headers: headers).responseJSON {
             response in
             
@@ -102,7 +116,7 @@ class TableViewController: UITableViewController {
                 print("Sucess, got the status")
 
                 let statusJSON = JSON(response.result.value!)
-
+                
                 self.updateInstancesArray(json:statusJSON)
                 self.tableView.reloadData()
                 
@@ -122,9 +136,7 @@ class TableViewController: UITableViewController {
     }
     
     func actionInstance(url: String, instance: Instance, action : String) -> String {
-        
-        let instance = instance
-        print(instance.id)
+
         let actionParams : Parameters = [
             "region" : instance.region,
             "id" : instance.id,
@@ -142,12 +154,12 @@ class TableViewController: UITableViewController {
                 
                 if action == "start" {
                     parameterType = "StartingInstances"
-                } else {
+                } else if action == "stop" {
                     parameterType = "StoppingInstances"
                 }
                 
-                if let newStatus = newStatusJSON[parameterType][0]["CurrentState"]["Name"].string?.capitalized {
-                    instance.status = newStatus
+                if let newStatus = newStatusJSON[parameterType][0]["CurrentState"]["Code"].int {
+                    instance.status = self.formatStatusCode(code: newStatus)
                     print("Success changing action instance \(instance.id)")
                     SVProgressHUD.dismiss()
                     self.tableView.reloadData()
@@ -172,8 +184,9 @@ class TableViewController: UITableViewController {
     
     func updateInstancesArray(json: JSON) {
         
+        instancesArray.removeAll()
 
-        for (key,subJson):(String, JSON) in json {
+        for (_, subJson):(String, JSON) in json {
             
             print("There is an object")
 
@@ -181,16 +194,9 @@ class TableViewController: UITableViewController {
                 
                 let temporaryInstance = Instance()
                 
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-                
-                guard let dateFromString = dateFormatter.date(from: subJson["LaunchTime"].stringValue) else {return}
-                
-                dateFormatter.dateFormat = "dd/MM/yyyy' at 'HH:mm"
-                
                 var region : String = subJson["Placement"]["AvailabilityZone"].stringValue
                 temporaryInstance.id = id
-                temporaryInstance.launchTime = "Started: \(dateFormatter.string(from: dateFromString))"
+                temporaryInstance.launchTime = "Started: \(formatDate(date: subJson["LaunchTime"].stringValue))"
                 temporaryInstance.name = id
                 region.remove(at: region.index(before: region.endIndex))
                 temporaryInstance.region = region
@@ -220,6 +226,19 @@ class TableViewController: UITableViewController {
             
     }
     
+    func formatDate(date: String) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        
+        guard let dateFromString = dateFormatter.date(from: date) else {return "Unable to format the date"}
+        
+        dateFormatter.dateFormat = "dd/MM/yyyy' at 'HH:mm"
+        
+        return dateFormatter.string(from: dateFromString)
+        
+    }
+    
     func formatStatusCode(code: Int) -> String {
         
         var stringStatus = ""
@@ -242,6 +261,19 @@ class TableViewController: UITableViewController {
         }
         
         return stringStatus
+        
+    }
+    
+    func loadRegions() {
+        
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            let decoder = PropertyListDecoder()
+            do {
+                regionsArray = try decoder.decode([Region].self, from: data)
+            } catch {
+                print("Error decoding regionsArray \(error)")
+            }
+        }
         
     }
         

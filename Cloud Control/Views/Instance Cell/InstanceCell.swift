@@ -16,10 +16,14 @@ class InstanceCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.contentView.layer.cornerRadius = 5
 
     }
     
+    
     override func layoutSubviews() {
+        
         super.layoutSubviews()
         if statusLabel.text == "Running" {
             statusLabel.textColor = UIColor.green
@@ -56,6 +60,8 @@ class InstanceCell: UITableViewCell {
         self.delegate?.switchButton(self, didSwitchButton: sender)
         
     }
+    
+    
 
     
 }
