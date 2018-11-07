@@ -35,7 +35,7 @@ class TableViewController: UITableViewController {
 
         refresher = UIRefreshControl()
         refresher.tintColor = .white
-        refresher.addTarget(self, action: #selector(TableViewController.pullRefreshStatus), for: UIControlEvents.valueChanged)
+        refresher.addTarget(self, action: #selector(TableViewController.pullRefreshStatus), for: UIControl.Event.valueChanged)
         tableView.refreshControl = refresher
         
     }
