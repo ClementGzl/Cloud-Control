@@ -34,7 +34,7 @@ class RegionFilterTableViewController: UITableViewController {
     }
     
 
-    // MARK: - Table view data source
+    // MARK: - Tableview data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
@@ -72,6 +72,8 @@ class RegionFilterTableViewController: UITableViewController {
         self.saveRegions()
         
     }
+    
+    // Loading and saving Data
     
     func saveRegions() {
 

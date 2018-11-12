@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class NotificationsSettingsTableViewController: UITableViewController {
     
@@ -27,7 +28,6 @@ class NotificationsSettingsTableViewController: UITableViewController {
 
         datePicker.isHidden = true
         
-        
     }
     
     @IBAction func dateChanged(_ sender: Any) {
@@ -37,7 +37,6 @@ class NotificationsSettingsTableViewController: UITableViewController {
         defaults.set(Double(datePicker.countDownDuration), forKey: "timerInterval")
         
         timerLabel.text = formatTimer(timer: datePicker.countDownDuration)
-        
         
     }
     
@@ -53,8 +52,14 @@ class NotificationsSettingsTableViewController: UITableViewController {
         }
         
         UIView.transition(with: tableView, duration: 0.35, options: .transitionCrossDissolve, animations: { () -> Void in
-            self.tableView.reloadData()
+            
+                self.tableView.reloadData()
+            
             }, completion: nil);
+        
+        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            completionHandler([.alert, .sound])
+        }
         
         
     }
@@ -78,10 +83,13 @@ class NotificationsSettingsTableViewController: UITableViewController {
             datePicker.isHidden.toggle()
             
             if datePicker.isHidden == false {
+
                 DispatchQueue.main.async {
                     self.datePicker.countDownDuration = TimeInterval(self.defaults.double(forKey: "timerInterval"))
                 }
+                
                 timerLabel.textColor = UIColor(red:0.04, green:0.26, blue:0.87, alpha:1.0)
+                
             } else {
                 timerLabel.textColor = UIColor.black
             }

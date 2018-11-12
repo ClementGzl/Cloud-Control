@@ -10,10 +10,10 @@
 		08611CAE2103932200F746C9 /* Constants.secret.swift.example in Resources */ = {isa = PBXBuildFile; fileRef = 08611CAD2103932200F746C9 /* Constants.secret.swift.example */; };
 		A8EAC07A712D6BD52E290EFE /* Pods_Cloud_Control.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E1ABC405ACE996A82F17FD /* Pods_Cloud_Control.framework */; };
 		EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC002101FDE50084CC59 /* AuthViewController.swift */; };
-		EB0CAC0321020EFE0084CC59 /* TouchIDAuthentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */; };
 		EB1228C3212B2DA600AD77E8 /* AWS regions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C2212B2DA600AD77E8 /* AWS regions.swift */; };
 		EB1228C5212B31B100AD77E8 /* RegionFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C4212B31B100AD77E8 /* RegionFilterTableViewController.swift */; };
 		EB1228C7212B371600AD77E8 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C6212B371600AD77E8 /* SettingsTableViewController.swift */; };
+		EB5865032199B52500196F7B /* Biometric Authentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5865022199B52500196F7B /* Biometric Authentification.swift */; };
 		EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8452E22101E8E6001D26BD /* Constants.secret.swift */; };
 		EBA26CE32124DA34009AACA7 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA26CE22124DA34009AACA7 /* Instance.swift */; };
 		EBB0FE202125E7B600D3FF13 /* InstanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB0FE1E2125E7B600D3FF13 /* InstanceCell.swift */; };
@@ -22,7 +22,6 @@
 		EBB7893120F37643006BDBF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB7892F20F37643006BDBF6 /* Main.storyboard */; };
 		EBB7893320F37644006BDBF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB7893220F37644006BDBF6 /* Assets.xcassets */; };
 		EBB7893620F37644006BDBF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB7893420F37644006BDBF6 /* LaunchScreen.storyboard */; };
-		EBD3331F210233B50018232C /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD3331E210233B50018232C /* LoadingButton.swift */; };
 		EBF921DA2142B298007C2975 /* NotificationsSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF921D92142B298007C2975 /* NotificationsSettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,10 +31,10 @@
 		20956C3ED73A90CA0F5152E4 /* Pods-Cloud Control.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloud Control.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cloud Control/Pods-Cloud Control.debug.xcconfig"; sourceTree = "<group>"; };
 		D0E1ABC405ACE996A82F17FD /* Pods_Cloud_Control.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloud_Control.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0CAC002101FDE50084CC59 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIDAuthentification.swift; sourceTree = "<group>"; };
 		EB1228C2212B2DA600AD77E8 /* AWS regions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AWS regions.swift"; sourceTree = "<group>"; };
 		EB1228C4212B31B100AD77E8 /* RegionFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionFilterTableViewController.swift; sourceTree = "<group>"; };
 		EB1228C6212B371600AD77E8 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		EB5865022199B52500196F7B /* Biometric Authentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Biometric Authentification.swift"; sourceTree = "<group>"; };
 		EB8452E22101E8E6001D26BD /* Constants.secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.secret.swift; sourceTree = "<group>"; };
 		EBA26CE22124DA34009AACA7 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
 		EBB0FE1E2125E7B600D3FF13 /* InstanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceCell.swift; sourceTree = "<group>"; };
@@ -46,7 +45,6 @@
 		EBB7893220F37644006BDBF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBB7893520F37644006BDBF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBB7893720F37644006BDBF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBD3331E210233B50018232C /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		EBF921D92142B298007C2975 /* NotificationsSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,10 +81,9 @@
 		EB8452E52101E90C001D26BD /* Data model */ = {
 			isa = PBXGroup;
 			children = (
+				EB5865022199B52500196F7B /* Biometric Authentification.swift */,
 				EB8452E22101E8E6001D26BD /* Constants.secret.swift */,
-				EB0CAC0221020EFE0084CC59 /* TouchIDAuthentification.swift */,
 				08611CAD2103932200F746C9 /* Constants.secret.swift.example */,
-				EBD3331E210233B50018232C /* LoadingButton.swift */,
 				EBA26CE22124DA34009AACA7 /* Instance.swift */,
 				EB1228C2212B2DA600AD77E8 /* AWS regions.swift */,
 			);
@@ -271,7 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBD3331F210233B50018232C /* LoadingButton.swift in Sources */,
+				EB5865032199B52500196F7B /* Biometric Authentification.swift in Sources */,
 				EB1228C5212B31B100AD77E8 /* RegionFilterTableViewController.swift in Sources */,
 				EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */,
 				EBF921DA2142B298007C2975 /* NotificationsSettingsTableViewController.swift in Sources */,
@@ -282,7 +279,6 @@
 				EBB7892E20F37643006BDBF6 /* TableViewController.swift in Sources */,
 				EBB7892C20F37643006BDBF6 /* AppDelegate.swift in Sources */,
 				EBA26CE32124DA34009AACA7 /* Instance.swift in Sources */,
-				EB0CAC0321020EFE0084CC59 /* TouchIDAuthentification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

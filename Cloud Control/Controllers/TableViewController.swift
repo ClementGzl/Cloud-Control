@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  VPN Stat
+//  Cloud Control
 //
 //  Created by Clément on 09/07/2018.
 //  Copyright © 2018 Clément. All rights reserved.
@@ -90,11 +90,14 @@ class TableViewController: UITableViewController {
                 let instancesListJSON = JSON(response.result.value!)
                 
                 print(instancesListJSON)
+
                 SVProgressHUD.dismiss()
                 
             } else {
                 print("Error getting instances list, \(response.result.error!)")
-                SVProgressHUD.dismiss()
+                
+                    SVProgressHUD.dismiss()
+                
             }
             
         }
@@ -119,18 +122,20 @@ class TableViewController: UITableViewController {
                 
                 self.updateInstancesArray(json:statusJSON)
                 self.tableView.reloadData()
-                
+
                 SVProgressHUD.dismiss()
                 self.refresher.endRefreshing()
+                
             }
 
             else {
                 print("Error getting status, \(response.result.error!)")
+                
                 SVProgressHUD.dismiss()
                 self.refresher.endRefreshing()
 
             }
-            
+    
         }
         
     }
@@ -161,20 +166,27 @@ class TableViewController: UITableViewController {
                 if let newStatus = newStatusJSON[parameterType][0]["CurrentState"]["Code"].int {
                     instance.status = self.formatStatusCode(code: newStatus)
                     print("Success changing action instance \(instance.id)")
+
                     SVProgressHUD.dismiss()
                     self.tableView.reloadData()
+                    
+                    
                 } else {
                     instance.status = "Error getting status"
                     print("Error updating status from actionInstance")
+
                     SVProgressHUD.dismiss()
                     self.tableView.reloadData()
+
                 }
                 
             }
     
         }
+
+            self.refresher.endRefreshing()
         
-        self.refresher.endRefreshing()
+        
         print(requestInstance)
         return instance.status
         
