@@ -363,7 +363,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="215.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="5G6-N4-fvj">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" countDownDuration="300" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="5G6-N4-fvj">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="215.5"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="563291246.238464">
                                                         <!--2018-11-07 13:47:26 +0000-->

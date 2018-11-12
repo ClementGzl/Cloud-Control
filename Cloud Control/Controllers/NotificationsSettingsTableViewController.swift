@@ -24,7 +24,8 @@ class NotificationsSettingsTableViewController: UITableViewController {
         
         notificationsSwitch.isOn = defaults.bool(forKey: "notificationsSetting")
         
-        timerLabel.text = formatTimer(timer: TimeInterval(defaults.double(forKey: "timerInterval")))
+        datePicker.countDownDuration = TimeInterval(defaults.double(forKey: "timerInterval"))
+        timerLabel.text = formatTimer(timer: datePicker.countDownDuration)
 
         datePicker.isHidden = true
         
@@ -57,9 +58,9 @@ class NotificationsSettingsTableViewController: UITableViewController {
             
             }, completion: nil);
         
-        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-            completionHandler([.alert, .sound])
-        }
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
+            
+        })
         
         
     }

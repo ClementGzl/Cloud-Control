@@ -39,6 +39,7 @@ class InstanceCell: UITableViewCell {
         } else {
             statusLabel.textColor = UIColor.darkText
             switchButton.isEnabled = true
+            switchButton.isOn = false
             launchTimeLabel.text = ""
         }
     }

@@ -10,12 +10,15 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SVProgressHUD
+import UserNotifications
 
 class TableViewController: UITableViewController {
 
     var instancesArray = [Instance]()
     
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Regions.plist")
+    
+    let defaults = UserDefaults.standard
     
     let instanceURL = secretInstanceURL
     let listURL = secretListURL
@@ -25,14 +28,14 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UIApplication.shared.applicationIconBadgeNumber = 0
 
         tableView.register(UINib(nibName: "instanceCell", bundle: nil), forCellReuseIdentifier: "customInstanceCell")
         loadRegions()
-        getStatus(url: listURL)
 
         SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.show()
-
+        
         refresher = UIRefreshControl()
         refresher.tintColor = .white
         refresher.addTarget(self, action: #selector(TableViewController.pullRefreshStatus), for: UIControl.Event.valueChanged)
@@ -42,7 +45,7 @@ class TableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        SVProgressHUD.show()
+        showSVProgressHUD()
         loadRegions()
         getStatus(url: listURL)
 
@@ -110,7 +113,7 @@ class TableViewController: UITableViewController {
 
         let params = ["regions" : selectedRegions]
         
-        print(params)
+        print("I am here")
         
         Alamofire.request(url, method: .get, parameters: params, headers: headers).responseJSON {
             response in
@@ -276,6 +279,8 @@ class TableViewController: UITableViewController {
         
     }
     
+    // UI Update
+    
     func loadRegions() {
         
         if let data = try? Data(contentsOf: dataFilePath!) {
@@ -288,6 +293,12 @@ class TableViewController: UITableViewController {
         }
         
     }
+    
+    func showSVProgressHUD() {
+        DispatchQueue.main.async {
+            SVProgressHUD.show()
+        }
+    }
         
 }
 
@@ -298,9 +309,67 @@ extension TableViewController: InstanceCellDelegate {
         
             if cell.switchButton.isOn == true {
                 cell.statusLabel.text = self.actionInstance(url: self.instanceURL, instance: self.instancesArray[indexPath.row], action: "start")
+                
+                if defaults.bool(forKey: "notificationsSetting") {
+                    createNotification(instance: self.instancesArray[indexPath.row])
+                    print("Notification for instance \(self.instancesArray[indexPath.row].name) successfully added")
+                }
             } else if cell.switchButton.isOn == false {
                 cell.statusLabel.text = self.actionInstance(url: self.instanceURL, instance: self.instancesArray[indexPath.row], action: "stop")
+                if defaults.bool(forKey: "notificationsSetting") {
+                    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["Notification for \(self.instancesArray[indexPath.row].name)"])
+                    print("Notification for instance \(self.instancesArray[indexPath.row].name) successfully removed")
+                }
             }
         }
     }
+}
+
+extension TableViewController: UNUserNotificationCenterDelegate {
+    
+    func createNotification(instance : Instance) {
+        
+        
+        let userTimeInterval = TimeInterval(defaults.double(forKey: "timerInterval"))
+        
+        let content = UNMutableNotificationContent()
+        
+        content.title = "Your instance \(instance.name) is still running"
+        content.body = "You may want to turn it off"
+        content.sound = UNNotificationSound.default
+        content.badge = 1
+        
+        let actionStopInstance = UNNotificationAction(identifier: "stopInstance", title: "Stop Instance", options: [.destructive, .authenticationRequired])
+        let reminderCategory = UNNotificationCategory(identifier: "reminderNotification", actions: [actionStopInstance], intentIdentifiers: [])
+        UNUserNotificationCenter.current().setNotificationCategories([reminderCategory])
+        
+        content.categoryIdentifier = "reminderNotification"
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: userTimeInterval, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "\(instance.name)", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+        print("the notification is actually created")
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        if response.actionIdentifier == "stopInstance" {
+            
+            
+            
+        }
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+
+        completionHandler([UNNotificationPresentationOptions.alert, UNNotificationPresentationOptions.badge, UNNotificationPresentationOptions.sound])
+    }
+    
+    
+    
 }
