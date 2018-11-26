@@ -55,7 +55,7 @@ class TableViewController: UITableViewController {
         performSegue(withIdentifier: "goToInfo", sender: self)
     }
     
-    //MARK: - Tableview Datasource
+    //MARK: - Tableview data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return instancesArray.count
@@ -305,6 +305,7 @@ class TableViewController: UITableViewController {
 extension TableViewController: InstanceCellDelegate {
     
     func switchButton(_ cell: InstanceCell, didSwitchButton: UISwitch) {
+        
         if let indexPath = tableView.indexPath(for: cell) {
         
             if cell.switchButton.isOn == true {
@@ -314,8 +315,10 @@ extension TableViewController: InstanceCellDelegate {
                     createNotification(instance: self.instancesArray[indexPath.row])
                     print("Notification for instance \(self.instancesArray[indexPath.row].name) successfully added")
                 }
+                
             } else if cell.switchButton.isOn == false {
                 cell.statusLabel.text = self.actionInstance(url: self.instanceURL, instance: self.instancesArray[indexPath.row], action: "stop")
+                
                 if defaults.bool(forKey: "notificationsSetting") {
                     UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["Notification for \(self.instancesArray[indexPath.row].name)"])
                     print("Notification for instance \(self.instancesArray[indexPath.row].name) successfully removed")
@@ -359,8 +362,6 @@ extension TableViewController: UNUserNotificationCenterDelegate {
         
         if response.actionIdentifier == "stopInstance" {
             
-            
-            
         }
         
     }
@@ -368,8 +369,7 @@ extension TableViewController: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
 
         completionHandler([UNNotificationPresentationOptions.alert, UNNotificationPresentationOptions.badge, UNNotificationPresentationOptions.sound])
+        
     }
-    
-    
     
 }
