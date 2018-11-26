@@ -13,6 +13,10 @@ class NotificationsSettingsTableViewController: UITableViewController {
     
     let defaults = UserDefaults.standard
     
+    let defaultNotificationsSetting = UserDefaults.standard.bool(forKey: "notificationsSetting")
+    
+    var userTimerInterval = TimeInterval(UserDefaults.standard.double(forKey: "timerInterval"))
+    
     @IBOutlet weak var notificationsSwitch: UISwitch!
     
     @IBOutlet weak var timerLabel: UILabel!
@@ -22,9 +26,15 @@ class NotificationsSettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        notificationsSwitch.isOn = defaults.bool(forKey: "notificationsSetting")
+        if userTimerInterval == 0 {
+            
+            defaults.set(Double(300), forKey: "timerInterval")
+            
+        }
         
-        datePicker.countDownDuration = TimeInterval(defaults.double(forKey: "timerInterval"))
+        notificationsSwitch.isOn = defaultNotificationsSetting
+        
+        datePicker.countDownDuration = userTimerInterval
         timerLabel.text = formatTimer(timer: datePicker.countDownDuration)
 
         datePicker.isHidden = true
@@ -32,8 +42,6 @@ class NotificationsSettingsTableViewController: UITableViewController {
     }
     
     @IBAction func dateChanged(_ sender: Any) {
-        
-        print("Value Changed!")
         
         defaults.set(Double(datePicker.countDownDuration), forKey: "timerInterval")
         
@@ -45,10 +53,8 @@ class NotificationsSettingsTableViewController: UITableViewController {
         
         if notificationsSwitch.isOn == true {
             defaults.set(true, forKey: "notificationsSetting")
-            print(defaults.bool(forKey: "notificationsSetting"))
         } else if notificationsSwitch.isOn == false {
             defaults.set(false, forKey: "notificationsSetting")
-            print(defaults.bool(forKey: "notificationsSetting"))
             datePicker.isHidden = true
         }
         
@@ -64,6 +70,8 @@ class NotificationsSettingsTableViewController: UITableViewController {
         
         
     }
+    
+    // MARK: - Tableview data source
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -86,7 +94,7 @@ class NotificationsSettingsTableViewController: UITableViewController {
             if datePicker.isHidden == false {
 
                 DispatchQueue.main.async {
-                    self.datePicker.countDownDuration = TimeInterval(self.defaults.double(forKey: "timerInterval"))
+                    self.datePicker.countDownDuration = self.userTimerInterval
                 }
                 
                 timerLabel.textColor = UIColor(red:0.04, green:0.26, blue:0.87, alpha:1.0)
