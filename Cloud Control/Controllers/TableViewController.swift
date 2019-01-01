@@ -143,21 +143,21 @@ class TableViewController: UITableViewController {
         
     }
     
-    func actionInstance(url: String, instance: Instance, action : String) -> String {
+    func actionInstance(url: String, region: String, id: String, action : String) {
 
         let actionParams : Parameters = [
-            "region" : instance.region,
-            "id" : instance.id,
+            "region" : region,
+            "id" : id,
             "action" : action
         ]
-        
+
         SVProgressHUD.show()
         
-        let requestInstance = Alamofire.request(url, method: .patch, parameters: actionParams, encoding: URLEncoding.queryString, headers: headers).responseJSON { (response) in
+        Alamofire.request(url, method: .patch, parameters: actionParams, encoding: URLEncoding.queryString, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
 
                 let newStatusJSON = JSON(response.result.value!)
-                
+                print(newStatusJSON)
                 var parameterType = ""
                 
                 if action == "start" {
@@ -167,32 +167,21 @@ class TableViewController: UITableViewController {
                 }
                 
                 if let newStatus = newStatusJSON[parameterType][0]["CurrentState"]["Code"].int {
-                    instance.status = self.formatStatusCode(code: newStatus)
-                    print("Success changing action instance \(instance.id)")
+//                    instanceStatus = self.formatStatusCode(code: newStatus)
+                    print("Success changing action instance \(id)")
 
                     SVProgressHUD.dismiss()
                     self.tableView.reloadData()
-                    
-                    
                 } else {
-                    instance.status = "Error getting status"
+//                    instanceStatus = "Error getting status"
                     print("Error updating status from actionInstance")
 
                     SVProgressHUD.dismiss()
                     self.tableView.reloadData()
-
                 }
-                
             }
-    
         }
-
-            self.refresher.endRefreshing()
-        
-        
-        print(requestInstance)
-        return instance.status
-        
+        self.refresher.endRefreshing()
     }
     
     //MARK: - JSON Parsing
@@ -309,7 +298,9 @@ extension TableViewController: InstanceCellDelegate {
         if let indexPath = tableView.indexPath(for: cell) {
         
             if cell.switchButton.isOn == true {
-                cell.statusLabel.text = self.actionInstance(url: self.instanceURL, instance: self.instancesArray[indexPath.row], action: "start")
+                
+                instancesArray[indexPath.row].status = "Pending"
+                self.actionInstance(url: instanceURL, region: instancesArray[indexPath.row].region, id: instancesArray[indexPath.row].id, action: "start")
                 
                 if defaults.bool(forKey: "notificationsSetting") {
                     createNotification(instance: self.instancesArray[indexPath.row])
@@ -317,10 +308,12 @@ extension TableViewController: InstanceCellDelegate {
                 }
                 
             } else if cell.switchButton.isOn == false {
-                cell.statusLabel.text = self.actionInstance(url: self.instanceURL, instance: self.instancesArray[indexPath.row], action: "stop")
+                
+                instancesArray[indexPath.row].status = "Stopping"
+                self.actionInstance(url: instanceURL, region: instancesArray[indexPath.row].region, id: instancesArray[indexPath.row].id, action: "stop")
                 
                 if defaults.bool(forKey: "notificationsSetting") {
-                    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["Notification for \(self.instancesArray[indexPath.row].name)"])
+                    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [self.instancesArray[indexPath.row].name])
                     print("Notification for instance \(self.instancesArray[indexPath.row].name) successfully removed")
                 }
             }
@@ -332,44 +325,70 @@ extension TableViewController: UNUserNotificationCenterDelegate {
     
     func createNotification(instance : Instance) {
         
-        
         let userTimeInterval = TimeInterval(defaults.double(forKey: "timerInterval"))
         
         let content = UNMutableNotificationContent()
+        UNUserNotificationCenter.current().delegate = self
         
+//        let userInfo: [String : Any] = ["Instance": instance]
+
         content.title = "Your instance \(instance.name) is still running"
         content.body = "You may want to turn it off"
         content.sound = UNNotificationSound.default
         content.badge = 1
         
-        let actionStopInstance = UNNotificationAction(identifier: "stopInstance", title: "Stop Instance", options: [.destructive, .authenticationRequired])
-        let reminderCategory = UNNotificationCategory(identifier: "reminderNotification", actions: [actionStopInstance], intentIdentifiers: [])
+        content.userInfo = ["region" : instance.region, "id" : instance.id]
+        
+        let actionStopInstance = UNNotificationAction(identifier: "stopInstance", title: "Stop Instance", options: [.destructive, .authenticationRequired, .foreground])
+        let actionSnoozeInstance = UNNotificationAction(identifier: "snoozeInstance", title: "Snooze", options: [])
+        
+        let reminderCategory = UNNotificationCategory(identifier: "reminderNotification", actions: [actionSnoozeInstance, actionStopInstance], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([reminderCategory])
         
         content.categoryIdentifier = "reminderNotification"
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: userTimeInterval, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 30, repeats: false)
         
         let request = UNNotificationRequest(identifier: "\(instance.name)", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         
         print("the notification is actually created")
-        
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        if response.actionIdentifier == "stopInstance" {
+        switch response.actionIdentifier {
+        case "stopInstance":
+            let userInfo = response.notification.request.content.userInfo
+            actionInstance(url: self.instanceURL, region: userInfo["region"] as! String, id: userInfo["id"] as! String, action: "stop")
             
+        case "snoozeInstance":
+            UNUserNotificationCenter.current().add(response.notification.request, withCompletionHandler: nil)
+            break
+        default:
+            print("ERROR")
+            break
         }
         
+        completionHandler()
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
 
         completionHandler([UNNotificationPresentationOptions.alert, UNNotificationPresentationOptions.badge, UNNotificationPresentationOptions.sound])
-        
+    }
+}
+struct Notification {
+    
+    struct Category {
+        static let tutorial = "tutorial"
+    }
+    
+    struct Action {
+        static let snooze = "snoozeInstance"
+        static let showDetails = "showDetails"
+        static let unsubscribe = "unsubscribe"
     }
     
 }
