@@ -347,7 +347,7 @@ extension TableViewController: UNUserNotificationCenterDelegate {
         
         content.categoryIdentifier = "reminderNotification"
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 30, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: userTimeInterval, repeats: false)
         
         let request = UNNotificationRequest(identifier: "\(instance.name)", content: content, trigger: trigger)
         
