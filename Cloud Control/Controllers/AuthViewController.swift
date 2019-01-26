@@ -17,7 +17,6 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         if touchMe.canEvaluatePolicy() == false {
             loginText.text = "No biometric sensor detected. Please log in using your device password."
         }
@@ -29,7 +28,6 @@ class AuthViewController: UIViewController {
         default:
             touchIDButton.setImage(UIImage(named: "Touch-icon-lg"),  for: .normal)
         }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,7 +36,10 @@ class AuthViewController: UIViewController {
         let touchBool = touchMe.canEvaluatePolicy()
         
         if touchBool {
-            authenticationWithBiometric()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.authenticationWithBiometric()
+            }
         }
     }
     
@@ -51,7 +52,6 @@ class AuthViewController: UIViewController {
         authenticationWithBiometric()
         
     }
-    
 }
 
 extension AuthViewController {
@@ -73,8 +73,6 @@ extension AuthViewController {
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "goToVPN", sender: self)
                     }
-                    
-                    
                 } else {
 
                     guard let error = evaluateError else {
@@ -82,7 +80,6 @@ extension AuthViewController {
                     }
                     
                     print(self.evaluateAuthenticationPolicyMessageForLA(errorCode: error._code))
-                    
                 }
             }
         } else {
@@ -90,7 +87,6 @@ extension AuthViewController {
             guard let error = authError else {
                 return
             }
-
             print(self.evaluateAuthenticationPolicyMessageForLA(errorCode: error.code))
         }
     }
@@ -166,6 +162,4 @@ extension AuthViewController {
         
         return message
     }
-    
 }
-
