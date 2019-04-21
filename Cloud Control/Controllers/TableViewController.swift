@@ -166,7 +166,7 @@ class TableViewController: UITableViewController {
                     parameterType = "StoppingInstances"
                 }
                 
-                if let newStatus = newStatusJSON[parameterType][0]["CurrentState"]["Code"].int {
+                if let _ = newStatusJSON[parameterType][0]["CurrentState"]["Code"].int {
 //                    instanceStatus = self.formatStatusCode(code: newStatus)
                     print("Success changing action instance \(id)")
 

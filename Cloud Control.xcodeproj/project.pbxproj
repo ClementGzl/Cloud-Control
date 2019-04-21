@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		08611CAE2103932200F746C9 /* Constants.secret.swift.example in Resources */ = {isa = PBXBuildFile; fileRef = 08611CAD2103932200F746C9 /* Constants.secret.swift.example */; };
-		A8EAC07A712D6BD52E290EFE /* Pods_Cloud_Control.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E1ABC405ACE996A82F17FD /* Pods_Cloud_Control.framework */; };
 		EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC002101FDE50084CC59 /* AuthViewController.swift */; };
 		EB1228C3212B2DA600AD77E8 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C2212B2DA600AD77E8 /* Region.swift */; };
 		EB1228C5212B31B100AD77E8 /* RegionFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C4212B31B100AD77E8 /* RegionFilterTableViewController.swift */; };
 		EB1228C7212B371600AD77E8 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C6212B371600AD77E8 /* SettingsTableViewController.swift */; };
+		EB1DB25D226C9E720014EFC2 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1DB25A226C9E720014EFC2 /* SVProgressHUD.framework */; };
+		EB1DB25E226C9E720014EFC2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1DB25B226C9E720014EFC2 /* SwiftyJSON.framework */; };
+		EB1DB25F226C9E720014EFC2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1DB25C226C9E720014EFC2 /* Alamofire.framework */; };
 		EB5865032199B52500196F7B /* Biometric Authentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5865022199B52500196F7B /* Biometric Authentification.swift */; };
 		EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8452E22101E8E6001D26BD /* Constants.secret.swift */; };
 		EBA26CE32124DA34009AACA7 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA26CE22124DA34009AACA7 /* Instance.swift */; };
@@ -27,13 +29,13 @@
 
 /* Begin PBXFileReference section */
 		08611CAD2103932200F746C9 /* Constants.secret.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Constants.secret.swift.example; sourceTree = "<group>"; };
-		1B9E87E66283D683B7138180 /* Pods-Cloud Control.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloud Control.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cloud Control/Pods-Cloud Control.release.xcconfig"; sourceTree = "<group>"; };
-		20956C3ED73A90CA0F5152E4 /* Pods-Cloud Control.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloud Control.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cloud Control/Pods-Cloud Control.debug.xcconfig"; sourceTree = "<group>"; };
-		D0E1ABC405ACE996A82F17FD /* Pods_Cloud_Control.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cloud_Control.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0CAC002101FDE50084CC59 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		EB1228C2212B2DA600AD77E8 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		EB1228C4212B31B100AD77E8 /* RegionFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionFilterTableViewController.swift; sourceTree = "<group>"; };
 		EB1228C6212B371600AD77E8 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		EB1DB25A226C9E720014EFC2 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
+		EB1DB25B226C9E720014EFC2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		EB1DB25C226C9E720014EFC2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EB5865022199B52500196F7B /* Biometric Authentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Biometric Authentification.swift"; sourceTree = "<group>"; };
 		EB8452E22101E8E6001D26BD /* Constants.secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.secret.swift; sourceTree = "<group>"; };
 		EBA26CE22124DA34009AACA7 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
@@ -53,22 +55,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8EAC07A712D6BD52E290EFE /* Pods_Cloud_Control.framework in Frameworks */,
+				EB1DB25D226C9E720014EFC2 /* SVProgressHUD.framework in Frameworks */,
+				EB1DB25E226C9E720014EFC2 /* SwiftyJSON.framework in Frameworks */,
+				EB1DB25F226C9E720014EFC2 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6B690EA606E5AB95AAB2F396 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				20956C3ED73A90CA0F5152E4 /* Pods-Cloud Control.debug.xcconfig */,
-				1B9E87E66283D683B7138180 /* Pods-Cloud Control.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		EB8452E42101E8F5001D26BD /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,7 +110,6 @@
 			children = (
 				EBB7892A20F37643006BDBF6 /* Cloud Control */,
 				EBB7892920F37643006BDBF6 /* Products */,
-				6B690EA606E5AB95AAB2F396 /* Pods */,
 				F02F3D9C63406BE0620CC14A /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -145,7 +139,9 @@
 		F02F3D9C63406BE0620CC14A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D0E1ABC405ACE996A82F17FD /* Pods_Cloud_Control.framework */,
+				EB1DB25C226C9E720014EFC2 /* Alamofire.framework */,
+				EB1DB25A226C9E720014EFC2 /* SVProgressHUD.framework */,
+				EB1DB25B226C9E720014EFC2 /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -157,11 +153,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EBB7893A20F37644006BDBF6 /* Build configuration list for PBXNativeTarget "Cloud Control" */;
 			buildPhases = (
-				0277F82999C034F57C252D57 /* [CP] Check Pods Manifest.lock */,
 				EBB7892420F37643006BDBF6 /* Sources */,
 				EBB7892520F37643006BDBF6 /* Frameworks */,
 				EBB7892620F37643006BDBF6 /* Resources */,
-				6A3CD53F52C570A6B408BB6E /* [CP] Embed Pods Frameworks */,
+				EB1DB260226C9E970014EFC2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -184,7 +179,7 @@
 				TargetAttributes = {
 					EBB7892720F37643006BDBF6 = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -221,45 +216,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0277F82999C034F57C252D57 /* [CP] Check Pods Manifest.lock */ = {
+		EB1DB260226C9E970014EFC2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+			inputFileListPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Cloud Control-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6A3CD53F52C570A6B408BB6E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Cloud Control/Pods-Cloud Control-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cloud Control/Pods-Cloud Control-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -420,11 +395,14 @@
 		};
 		EBB7893B20F37644006BDBF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20956C3ED73A90CA0F5152E4 /* Pods-Cloud Control.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4RWKM5E87W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Cloud Control/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -432,18 +410,21 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clementgonzalvez.CloudControl;
 				PRODUCT_NAME = "Cloud Control";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		EBB7893C20F37644006BDBF6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B9E87E66283D683B7138180 /* Pods-Cloud Control.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4RWKM5E87W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Cloud Control/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -451,7 +432,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clementgonzalvez.CloudControl;
 				PRODUCT_NAME = "Cloud Control";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
