@@ -20,12 +20,12 @@ class BiometricIDAuth {
     func biometricType() -> BiometricType {
         let _ = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
         switch context.biometryType {
-        case .none:
-            return .none
         case .touchID:
             return .touchID
         case .faceID:
             return .faceID
+        default:
+            return .none
         }
     }
     
