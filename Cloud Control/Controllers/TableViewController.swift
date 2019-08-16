@@ -26,7 +26,7 @@ class TableViewController: UITableViewController {
     let listURL = secretListURL
     let headers: HTTPHeaders = ["x-api-key": secretApiKey]
     var refresher: UIRefreshControl!
-    var regions: [Region] = []
+    var regions: [Region] = RegionFetcher.sharedInstance.regions
     
     weak var delegate: RegionFilterDelegate?
     
@@ -48,8 +48,6 @@ class TableViewController: UITableViewController {
         tableView.refreshControl = refresher
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
-        
-        let fetcher = RegionFetcher()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -109,9 +107,9 @@ class TableViewController: UITableViewController {
     
     @objc func getStatus(url : String) {
         
-        let selectedRegions = delegate?.selectedRegions.map({$0.rawRegion ?? ""}).joined(separator: ",")
+        let selectedRegions = regions.filter({$0.isSelected}).map({$0.rawRegion ?? ""}).joined(separator: ",")
 
-        let params: Parameters = ["regions" : selectedRegions ?? ""]
+        let params: Parameters = ["regions" : selectedRegions]
         
         Alamofire.request(url, method: .get, parameters: params, headers: headers).responseJSON {
             response in
