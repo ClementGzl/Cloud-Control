@@ -14,11 +14,15 @@ protocol InstanceCellDelegate: class {
 
 class InstanceCell: UITableViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var launchTimeLabel: UILabel!
+    @IBOutlet weak var switchButton: UISwitch!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.contentView.layer.cornerRadius = 5
-
     }
     
     override func layoutSubviews() {
@@ -46,23 +50,11 @@ class InstanceCell: UITableViewCell {
     
     weak var delegate: InstanceCellDelegate?
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        
-        super.setSelected(selected, animated: animated)
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//    }
 
-    }
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var launchTimeLabel: UILabel!
-    @IBOutlet weak var switchButton: UISwitch!
     @IBAction func changeInstanceAction(_ sender: UISwitch) {
-
         self.delegate?.switchButton(self, didSwitchButton: sender)
-        
     }
-    
-    
-
-    
 }
