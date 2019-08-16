@@ -15,6 +15,7 @@
 		EB1DB25D226C9E720014EFC2 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1DB25A226C9E720014EFC2 /* SVProgressHUD.framework */; };
 		EB1DB25E226C9E720014EFC2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1DB25B226C9E720014EFC2 /* SwiftyJSON.framework */; };
 		EB1DB25F226C9E720014EFC2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1DB25C226C9E720014EFC2 /* Alamofire.framework */; };
+		EB1DB264226CBCF30014EFC2 /* InstanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB1DB263226CBCF30014EFC2 /* InstanceCell.xib */; };
 		EB5865032199B52500196F7B /* Biometric Authentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5865022199B52500196F7B /* Biometric Authentification.swift */; };
 		EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8452E22101E8E6001D26BD /* Constants.secret.swift */; };
 		EBA26CE32124DA34009AACA7 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA26CE22124DA34009AACA7 /* Instance.swift */; };
@@ -24,6 +25,7 @@
 		EBB7893120F37643006BDBF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB7892F20F37643006BDBF6 /* Main.storyboard */; };
 		EBB7893320F37644006BDBF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB7893220F37644006BDBF6 /* Assets.xcassets */; };
 		EBB7893620F37644006BDBF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB7893420F37644006BDBF6 /* LaunchScreen.storyboard */; };
+		EBC232E02306F80200A8E3E5 /* CloudControl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBC232DE2306F80100A8E3E5 /* CloudControl.xcdatamodeld */; };
 		EBF921DA2142B298007C2975 /* NotificationsSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF921D92142B298007C2975 /* NotificationsSettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,7 @@
 		EB1DB25A226C9E720014EFC2 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		EB1DB25B226C9E720014EFC2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		EB1DB25C226C9E720014EFC2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		EB1DB263226CBCF30014EFC2 /* InstanceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstanceCell.xib; sourceTree = "<group>"; };
 		EB5865022199B52500196F7B /* Biometric Authentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Biometric Authentification.swift"; sourceTree = "<group>"; };
 		EB8452E22101E8E6001D26BD /* Constants.secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.secret.swift; sourceTree = "<group>"; };
 		EBA26CE22124DA34009AACA7 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		EBB7893220F37644006BDBF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBB7893520F37644006BDBF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBB7893720F37644006BDBF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBC232DF2306F80100A8E3E5 /* CloudControl.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CloudControl.xcdatamodel; sourceTree = "<group>"; };
 		EBF921D92142B298007C2975 /* NotificationsSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +84,7 @@
 				EB8452E22101E8E6001D26BD /* Constants.secret.swift */,
 				08611CAD2103932200F746C9 /* Constants.secret.swift.example */,
 				EBA26CE22124DA34009AACA7 /* Instance.swift */,
+				EBC232DE2306F80100A8E3E5 /* CloudControl.xcdatamodeld */,
 				EB1228C2212B2DA600AD77E8 /* Region.swift */,
 			);
 			path = "Data model";
@@ -101,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				EBB0FE1E2125E7B600D3FF13 /* InstanceCell.swift */,
+				EB1DB263226CBCF30014EFC2 /* InstanceCell.xib */,
 			);
 			path = "Instance Cell";
 			sourceTree = "<group>";
@@ -207,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08611CAE2103932200F746C9 /* Constants.secret.swift.example in Resources */,
+				EB1DB264226CBCF30014EFC2 /* InstanceCell.xib in Resources */,
 				EBB7893620F37644006BDBF6 /* LaunchScreen.storyboard in Resources */,
 				EBB7893320F37644006BDBF6 /* Assets.xcassets in Resources */,
 				EBB7893120F37643006BDBF6 /* Main.storyboard in Resources */,
@@ -244,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB5865032199B52500196F7B /* Biometric Authentification.swift in Sources */,
+				EBC232E02306F80200A8E3E5 /* CloudControl.xcdatamodeld in Sources */,
 				EB1228C5212B31B100AD77E8 /* RegionFilterTableViewController.swift in Sources */,
 				EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */,
 				EBF921DA2142B298007C2975 /* NotificationsSettingsTableViewController.swift in Sources */,
@@ -459,6 +467,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EBC232DE2306F80100A8E3E5 /* CloudControl.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EBC232DF2306F80100A8E3E5 /* CloudControl.xcdatamodel */,
+			);
+			currentVersion = EBC232DF2306F80100A8E3E5 /* CloudControl.xcdatamodel */;
+			path = CloudControl.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EBB7892020F37643006BDBF6 /* Project object */;
 }

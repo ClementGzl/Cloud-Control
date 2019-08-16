@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uV9-V8-wGw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uV9-V8-wGw">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -86,7 +86,7 @@
                                     </constraints>
                                     <state key="normal" image="world"/>
                                     <connections>
-                                        <segue destination="P9i-Ts-heW" kind="show" id="KyK-DK-lTk"/>
+                                        <segue destination="P9i-Ts-heW" kind="show" identifier="GoToRegionFilterTVCC" id="KyK-DK-lTk"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -96,60 +96,6 @@
                                 <constraint firstAttribute="trailingMargin" secondItem="fA6-hx-cTI" secondAttribute="trailing" id="sFI-om-XrA"/>
                             </constraints>
                         </view>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="instanceCell" rowHeight="116" id="vPe-V9-HOJ" customClass="InstanceCell" customModule="Cloud_Control" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="99.5" width="414" height="116"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vPe-V9-HOJ" id="kf4-MU-s3T">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="115.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ll0-Ce-n4E">
-                                            <rect key="frame" x="345" y="42.5" width="51" height="31"/>
-                                            <connections>
-                                                <action selector="changeInstanceAction:" destination="vPe-V9-HOJ" eventType="valueChanged" id="ChZ-ke-Xh7"/>
-                                            </connections>
-                                        </switch>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="WV2-0n-rc2">
-                                            <rect key="frame" x="20" y="11" width="40" height="94"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7h8-Ht-lLi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="18.5" height="26.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRn-Ve-ezT">
-                                                    <rect key="frame" x="0.0" y="33.5" width="18.5" height="27"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="../../.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICS-e4-6oe">
-                                                    <rect key="frame" x="0.0" y="67.5" width="40" height="26.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Ll0-Ce-n4E" secondAttribute="trailing" id="83c-Mf-eCI"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="WV2-0n-rc2" secondAttribute="bottom" id="HZn-ud-nYa"/>
-                                        <constraint firstItem="WV2-0n-rc2" firstAttribute="leading" secondItem="kf4-MU-s3T" secondAttribute="leadingMargin" id="U2b-5J-url"/>
-                                        <constraint firstItem="Ll0-Ce-n4E" firstAttribute="centerY" secondItem="kf4-MU-s3T" secondAttribute="centerY" id="WZ4-f8-iMJ"/>
-                                        <constraint firstItem="WV2-0n-rc2" firstAttribute="top" secondItem="kf4-MU-s3T" secondAttribute="topMargin" id="xce-Dr-1pv"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="launchTimeLabel" destination="ICS-e4-6oe" id="1QK-53-UP9"/>
-                                    <outlet property="nameLabel" destination="7h8-Ht-lLi" id="U5L-rU-Jv4"/>
-                                    <outlet property="statusLabel" destination="mRn-Ve-ezT" id="Eml-au-gcL"/>
-                                    <outlet property="switchButton" destination="Ll0-Ce-n4E" id="NI1-8R-wDW"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="L3g-zG-WPe" id="IN0-g3-cYj"/>
@@ -157,11 +103,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cloud Control" largeTitleDisplayMode="always" id="gDe-hf-HeM">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="SHC-rr-GJo">
-                            <connections>
-                                <segue destination="sZs-zp-Kig" kind="show" id="9YC-il-Q1F"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Settings" id="SHC-rr-GJo">
+                                <connections>
+                                    <segue destination="sZs-zp-Kig" kind="show" id="9YC-il-Q1F"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Filter" id="Ugh-r3-KDe">
+                                <connections>
+                                    <segue destination="P9i-Ts-heW" kind="show" identifier="GoToRegionFilterTVC" id="yY9-VA-1zs"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lv7-ht-x3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -429,7 +382,10 @@
     </scenes>
     <resources>
         <image name="Touch-icon-lg" width="138" height="137.5"/>
-        <image name="logo-transparent" width="1536" height="1536"/>
+        <image name="logo-transparent" width="768" height="768"/>
         <image name="world" width="100" height="100"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="KyK-DK-lTk"/>
+    </inferredMetricsTieBreakers>
 </document>
