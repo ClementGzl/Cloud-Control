@@ -11,6 +11,12 @@ import LocalAuthentication
 
 class BiometricIDAuth {
     
+    enum BiometricType {
+        case none
+        case touchID
+        case faceID
+    }
+    
     let context = LAContext()
     
     func canEvaluatePolicy() -> Bool {
@@ -28,11 +34,4 @@ class BiometricIDAuth {
             return .none
         }
     }
-    
-    enum BiometricType {
-        case none
-        case touchID
-        case faceID
-    }
-    
 }
