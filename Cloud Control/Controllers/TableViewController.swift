@@ -56,10 +56,6 @@ class TableViewController: UITableViewController {
         getStatus(url: listURL)
     }
     
-    @IBAction func goToinfo(_ sender: Any) {
-        performSegue(withIdentifier: "goToInfo", sender: self)
-    }
-    
     //MARK: - Tableview data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
