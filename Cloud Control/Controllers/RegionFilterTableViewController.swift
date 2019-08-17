@@ -15,18 +15,36 @@ class RegionFilterTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
     }
     
     let regions: [Region] = RegionFetcher.sharedInstance.regions
     
     @IBAction func selectAllRegions(_ sender: Any) {
+        
+        let rows = tableView.numberOfRows(inSection: 0)
+        
+        for row in 0..<rows {
+            regions[row].isSelected = true
+        }
+        
         tableView.reloadData()
     }
     
     @IBAction func deselectAllRegions(_ sender: Any) {
+        let rows = tableView.numberOfRows(inSection: 0)
+        
+        for row in 0..<rows {
+            regions[row].isSelected = false
+        }
+        
         tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        RegionFetcher.sharedInstance.save()
     }
     
 
@@ -54,8 +72,6 @@ class RegionFilterTableViewController: UITableViewController {
         let region = regions[indexPath.row]
         
         region.isSelected.toggle()
-        
-        RegionFetcher.sharedInstance.save()
         
         tableView.beginUpdates()
         tableView.reloadRows(at: [indexPath], with: .automatic)

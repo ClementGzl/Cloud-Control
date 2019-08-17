@@ -19,6 +19,9 @@
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wmd-V2-ZlB">
                     <rect key="frame" x="345" y="53.5" width="51" height="31"/>
                     <color key="onTintColor" red="0.039215686270000001" green="0.25882352939999997" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="changeInstanceAction:" destination="iN0-l3-epB" eventType="valueChanged" id="hoe-ej-yAu"/>
+                    </connections>
                 </switch>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="285-Zd-6iQ">
                     <rect key="frame" x="20" y="10" width="317" height="118"/>
