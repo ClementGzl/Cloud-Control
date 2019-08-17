@@ -10,13 +10,6 @@ import UIKit
 import CoreData
 
 class RegionFilterTableViewController: UITableViewController {
-
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Regions.plist")
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
     
     let regions: [Region] = RegionFetcher.sharedInstance.regions
     
@@ -78,32 +71,4 @@ class RegionFilterTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.endUpdates()
     }
-    
-    // MARK: - Loading and saving Data
-    
-//    func saveRegions() {
-//
-//        let encoder = PropertyListEncoder()
-//
-//        do {
-//            let data = try encoder.encode(regions)
-//            try data.write(to: dataFilePath!)
-//        } catch {
-//            print("Error encoding regionsArray \(error)")
-//        }
-//
-//        self.tableView.reloadData()
-//    }
-
-//    func loadRegions() {
-//
-//        if let data = try? Data(contentsOf: dataFilePath!) {
-//            let decoder = PropertyListDecoder()
-//            do {
-//                regions = try decoder.decode([Region].self, from: data)
-//            } catch {
-//                print("Error decoding regionsArray \(error)")
-//            }
-//        }
-//    }
 }

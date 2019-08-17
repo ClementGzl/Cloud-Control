@@ -68,31 +68,12 @@
         <!--Cloud Control-->
         <scene sceneID="rfy-Nn-CZX">
             <objects>
-                <tableViewController id="L3g-zG-WPe" customClass="TableViewController" customModule="Cloud_Control" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="L3g-zG-WPe" customClass="InstancesTVC" customModule="Cloud_Control" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="vh2-HA-ffg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" red="0.039215686270000001" green="0.25882352939999997" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="elx-x3-gfT">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fA6-hx-cTI">
-                                    <rect key="frame" x="367" y="2.5" width="39" height="39"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="39" id="mwh-KW-0bc"/>
-                                        <constraint firstAttribute="height" constant="39" id="tSG-6g-zmB"/>
-                                    </constraints>
-                                    <state key="normal" image="world"/>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="fA6-hx-cTI" firstAttribute="centerY" secondItem="elx-x3-gfT" secondAttribute="centerY" id="YeF-1T-dQw"/>
-                                <constraint firstAttribute="trailingMargin" secondItem="fA6-hx-cTI" secondAttribute="trailing" id="sFI-om-XrA"/>
-                            </constraints>
-                        </view>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="L3g-zG-WPe" id="IN0-g3-cYj"/>
@@ -405,6 +386,5 @@
         <image name="Touch-icon-lg" width="138" height="137.5"/>
         <image name="logo-transparent" width="768" height="768"/>
         <image name="notification" width="30" height="30"/>
-        <image name="world" width="100" height="100"/>
     </resources>
 </document>

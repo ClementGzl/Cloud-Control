@@ -27,20 +27,20 @@
                     <rect key="frame" x="20" y="10" width="317" height="118"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlP-h2-MTo">
-                            <rect key="frame" x="0.0" y="0.0" width="18.5" height="34.5"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                            <rect key="frame" x="0.0" y="0.0" width="16.5" height="34.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGS-dc-gOx">
-                            <rect key="frame" x="0.0" y="41.5" width="18.5" height="35"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                            <rect key="frame" x="0.0" y="41.5" width="17" height="35"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="../../.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQD-ql-lvM">
-                            <rect key="frame" x="0.0" y="83.5" width="40" height="34.5"/>
-                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                            <rect key="frame" x="0.0" y="83.5" width="39.5" height="34.5"/>
+                            <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>

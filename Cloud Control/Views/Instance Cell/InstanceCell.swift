@@ -19,6 +19,8 @@ class InstanceCell: UITableViewCell {
     @IBOutlet weak var launchTimeLabel: UILabel!
     @IBOutlet weak var switchButton: UISwitch!
     
+    weak var delegate: InstanceCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -47,12 +49,6 @@ class InstanceCell: UITableViewCell {
             launchTimeLabel.text = ""
         }
     }
-    
-    weak var delegate: InstanceCellDelegate?
-    
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//    }
 
     @IBAction func changeInstanceAction(_ sender: UISwitch) {
         self.delegate?.switchButton(self, didSwitchButton: sender)
