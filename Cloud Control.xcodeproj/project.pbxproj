@@ -10,7 +10,7 @@
 		08611CAE2103932200F746C9 /* Constants.secret.swift.example in Resources */ = {isa = PBXBuildFile; fileRef = 08611CAD2103932200F746C9 /* Constants.secret.swift.example */; };
 		EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CAC002101FDE50084CC59 /* AuthViewController.swift */; };
 		EB1197B723083A2F00CB7A40 /* InstancesTVC+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1197B623083A2F00CB7A40 /* InstancesTVC+Notifications.swift */; };
-		EB1228C3212B2DA600AD77E8 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C2212B2DA600AD77E8 /* Region.swift */; };
+		EB1228C3212B2DA600AD77E8 /* RegionFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C2212B2DA600AD77E8 /* RegionFetcher.swift */; };
 		EB1228C5212B31B100AD77E8 /* RegionFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C4212B31B100AD77E8 /* RegionFilterTableViewController.swift */; };
 		EB1228C7212B371600AD77E8 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C6212B371600AD77E8 /* SettingsTableViewController.swift */; };
 		EB1DB25D226C9E720014EFC2 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1DB25A226C9E720014EFC2 /* SVProgressHUD.framework */; };
@@ -34,7 +34,7 @@
 		08611CAD2103932200F746C9 /* Constants.secret.swift.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Constants.secret.swift.example; sourceTree = "<group>"; };
 		EB0CAC002101FDE50084CC59 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		EB1197B623083A2F00CB7A40 /* InstancesTVC+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InstancesTVC+Notifications.swift"; sourceTree = "<group>"; };
-		EB1228C2212B2DA600AD77E8 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		EB1228C2212B2DA600AD77E8 /* RegionFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionFetcher.swift; sourceTree = "<group>"; };
 		EB1228C4212B31B100AD77E8 /* RegionFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionFilterTableViewController.swift; sourceTree = "<group>"; };
 		EB1228C6212B371600AD77E8 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		EB1DB25A226C9E720014EFC2 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 				08611CAD2103932200F746C9 /* Constants.secret.swift.example */,
 				EBA26CE22124DA34009AACA7 /* Instance.swift */,
 				EBC232DE2306F80100A8E3E5 /* CloudControl.xcdatamodeld */,
-				EB1228C2212B2DA600AD77E8 /* Region.swift */,
+				EB1228C2212B2DA600AD77E8 /* RegionFetcher.swift */,
 			);
 			path = "Data model";
 			sourceTree = "<group>";
@@ -260,7 +260,7 @@
 				EBF921DA2142B298007C2975 /* NotificationsSettingsTableViewController.swift in Sources */,
 				EB1228C7212B371600AD77E8 /* SettingsTableViewController.swift in Sources */,
 				EBB0FE202125E7B600D3FF13 /* InstanceCell.swift in Sources */,
-				EB1228C3212B2DA600AD77E8 /* Region.swift in Sources */,
+				EB1228C3212B2DA600AD77E8 /* RegionFetcher.swift in Sources */,
 				EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */,
 				EBB7892E20F37643006BDBF6 /* InstancesTVC.swift in Sources */,
 				EBB7892C20F37643006BDBF6 /* AppDelegate.swift in Sources */,
