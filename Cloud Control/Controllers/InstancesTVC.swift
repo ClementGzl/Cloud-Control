@@ -42,6 +42,8 @@ class InstancesTVC: UITableViewController {
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
+        
+        addOrRemoveNoContentViewIfNecessary(type: .noInstance)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -111,6 +113,7 @@ class InstancesTVC: UITableViewController {
                 
                 self.updateInstancesArray(json:statusJSON)
                 self.tableView.reloadData()
+                self.addOrRemoveNoContentViewIfNecessary(type: .noInstance)
 
                 SVProgressHUD.dismiss()
                 self.refresher.endRefreshing()
@@ -152,11 +155,13 @@ class InstancesTVC: UITableViewController {
 
                     SVProgressHUD.dismiss()
                     self.tableView.reloadData()
+                    self.addOrRemoveNoContentViewIfNecessary(type: .noInstance)
                 } else {
                     print("Error updating status from actionInstance")
 
                     SVProgressHUD.dismiss()
                     self.tableView.reloadData()
+                    self.addOrRemoveNoContentViewIfNecessary(type: .error)
                 }
             }
         }
@@ -168,6 +173,11 @@ class InstancesTVC: UITableViewController {
     func updateInstancesArray(json: JSON) {
         
         instances.removeAll()
+        
+        if json.isEmpty {
+            addOrRemoveNoContentViewIfNecessary(type: .noInstance)
+            print("No Instance")
+        }
 
         for (_, subJson):(String, JSON) in json {
             
@@ -207,7 +217,7 @@ class InstancesTVC: UITableViewController {
         }
     }
     
-    func formatDate(date: String) -> String {
+    private func formatDate(date: String) -> String {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
@@ -221,7 +231,7 @@ class InstancesTVC: UITableViewController {
         return dateFormatter.string(from: dateFromString)
     }
     
-    func formatStatusCode(code: Int) -> String {
+    private func formatStatusCode(code: Int) -> String {
         switch code {
         case 0 :
             return "Pending"
@@ -240,9 +250,29 @@ class InstancesTVC: UITableViewController {
         }
     }
     
-    func showSVProgressHUD() {
+    private func showSVProgressHUD() {
         DispatchQueue.main.async {
             SVProgressHUD.show()
+        }
+    }
+    
+    private func addOrRemoveNoContentViewIfNecessary(type: NoContentView.ViewType) {
+        
+//        let noContentViewAlreadyExists = view.subviews.contains(where: {$0 is NoContentView})
+        
+        if let existingNoContentView = view.subviews.first(where: {$0 is NoContentView}) {
+            existingNoContentView.removeFromSuperview()
+        }
+        
+        if instances.isEmpty {
+            let noContentView = NoContentView(type: type)
+            noContentView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(noContentView)
+            
+            NSLayoutConstraint.activate([
+                noContentView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+                noContentView.topAnchor.constraint(equalTo: tableView.topAnchor, constant: 250)
+                ])
         }
     }
 }
