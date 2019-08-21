@@ -36,7 +36,12 @@ class RegionFetcher {
                 fetch()
                 return
             } else {
-                self.regions = regions
+                
+                let sortedRegions = regions.sorted { (lhs, rhs) -> Bool in
+                    return lhs.rawRegion ?? "" < rhs.rawRegion ?? ""
+                }
+                
+                self.regions = sortedRegions
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
