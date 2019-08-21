@@ -17,6 +17,7 @@
 		EB1DB25E226C9E720014EFC2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1DB25B226C9E720014EFC2 /* SwiftyJSON.framework */; };
 		EB1DB25F226C9E720014EFC2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1DB25C226C9E720014EFC2 /* Alamofire.framework */; };
 		EB1DB264226CBCF30014EFC2 /* InstanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB1DB263226CBCF30014EFC2 /* InstanceCell.xib */; };
+		EB2F9655230D55ED00B70394 /* NoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F9654230D55ED00B70394 /* NoContentView.swift */; };
 		EB5865032199B52500196F7B /* Biometric Authentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5865022199B52500196F7B /* Biometric Authentification.swift */; };
 		EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8452E22101E8E6001D26BD /* Constants.secret.swift */; };
 		EBA26CE32124DA34009AACA7 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA26CE22124DA34009AACA7 /* Instance.swift */; };
@@ -41,6 +42,7 @@
 		EB1DB25B226C9E720014EFC2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		EB1DB25C226C9E720014EFC2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EB1DB263226CBCF30014EFC2 /* InstanceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstanceCell.xib; sourceTree = "<group>"; };
+		EB2F9654230D55ED00B70394 /* NoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoContentView.swift; sourceTree = "<group>"; };
 		EB5865022199B52500196F7B /* Biometric Authentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Biometric Authentification.swift"; sourceTree = "<group>"; };
 		EB8452E22101E8E6001D26BD /* Constants.secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.secret.swift; sourceTree = "<group>"; };
 		EBA26CE22124DA34009AACA7 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			children = (
 				EBB7892F20F37643006BDBF6 /* Main.storyboard */,
 				EBB0FE222125E7BA00D3FF13 /* Instance Cell */,
+				EB2F9654230D55ED00B70394 /* NoContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				EBF921DA2142B298007C2975 /* NotificationsSettingsTableViewController.swift in Sources */,
 				EB1228C7212B371600AD77E8 /* SettingsTableViewController.swift in Sources */,
 				EBB0FE202125E7B600D3FF13 /* InstanceCell.swift in Sources */,
+				EB2F9655230D55ED00B70394 /* NoContentView.swift in Sources */,
 				EB1228C3212B2DA600AD77E8 /* RegionFetcher.swift in Sources */,
 				EB8452E32101E8E6001D26BD /* Constants.secret.swift in Sources */,
 				EBB7892E20F37643006BDBF6 /* InstancesTVC.swift in Sources */,
