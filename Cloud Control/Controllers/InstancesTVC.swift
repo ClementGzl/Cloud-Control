@@ -14,7 +14,13 @@ import UserNotifications
 
 class InstancesTVC: UITableViewController {
 
-    var instances = [Instance]()
+    var instances = [Instance]() {
+        didSet {
+            instances = instances.sorted(by: { (lhs, rhs) -> Bool in
+                return lhs.region < rhs.region
+            })
+        }
+    }
 
     let defaults = UserDefaults.standard
     
@@ -58,12 +64,25 @@ class InstancesTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let instance = instances[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "InstanceCell", for: indexPath) as! InstanceCell
-        cell.nameLabel.text = instances[indexPath.row].name
-        cell.statusLabel.text = instances[indexPath.row].status
-        cell.launchTimeLabel.text = instances[indexPath.row].launchTime
-
-        cell.delegate = self
+        
+        cell.nameLabel.text = instance.name
+        cell.statusLabel.text = instance.status.description
+        cell.launchTimeLabel.text = instance.launchTime
+        
+        if instance.isLoading {
+            cell.activityIndicator.isHidden = false
+            cell.activityIndicator.startAnimating()
+        } else {
+            cell.activityIndicator.isHidden = true
+            cell.activityIndicator.stopAnimating()
+        }
+        
+        cell.didSwitch = { [unowned self] (isOn) in
+            self.didSwitchInstance(at: indexPath, isOn: isOn)
+        }
 
         return cell
     }
@@ -107,13 +126,11 @@ class InstancesTVC: UITableViewController {
             response in
             
             if response.result.isSuccess {
-                print("Sucess, got the status")
 
                 let statusJSON = JSON(response.result.value!)
                 
                 self.updateInstancesArray(json:statusJSON)
                 self.tableView.reloadData()
-                self.addOrRemoveNoContentViewIfNecessary(type: .noInstance)
 
                 SVProgressHUD.dismiss()
                 self.refresher.endRefreshing()
@@ -122,6 +139,7 @@ class InstancesTVC: UITableViewController {
                 print("Error getting status, \(response.result.error!)")
                 
                 SVProgressHUD.dismiss()
+                self.addOrRemoveNoContentViewIfNecessary(type: .error)
                 self.refresher.endRefreshing()
             }
         }
@@ -161,8 +179,11 @@ class InstancesTVC: UITableViewController {
 
                     SVProgressHUD.dismiss()
                     self.tableView.reloadData()
+                    
                     self.addOrRemoveNoContentViewIfNecessary(type: .error)
                 }
+            } else {
+                self.addOrRemoveNoContentViewIfNecessary(type: .error)
             }
         }
         self.refresher.endRefreshing()
@@ -180,38 +201,34 @@ class InstancesTVC: UITableViewController {
         }
 
         for (_, subJson):(String, JSON) in json {
-            
-            print("There is an object")
 
             if let id = subJson["InstanceId"].string {
                 
-                let temporaryInstance = Instance()
-                
                 var region : String = subJson["Placement"]["AvailabilityZone"].stringValue
-                temporaryInstance.id = id
-                temporaryInstance.launchTime = "Started: \(formatDate(date: subJson["LaunchTime"].stringValue))"
-                temporaryInstance.name = id
+                let launchTime = "Started: \(formatDate(date: subJson["LaunchTime"].stringValue))"
                 region.remove(at: region.index(before: region.endIndex))
-                temporaryInstance.region = region
-                var statusCode = Int()
-                statusCode = subJson["State"]["Code"].intValue
+                let statusCode = subJson["State"]["Code"].intValue
                 
-                for (_,value) in subJson["Tags"] {
-
-                    if value["Key"] == "Name" {
-                        temporaryInstance.name = value["Value"].string!
+                var instanceName: String? = nil
+                
+                for (_, value) in subJson["Tags"] {
+                    if let name = value["Value"].string, value["Key"] == "Name" {
+                        instanceName = name
                     }
                 }
                 
-                temporaryInstance.status = formatStatusCode(code: statusCode)
+                let newInstance = Instance(region: region, id: id, name: instanceName, statusCode: statusCode, launchTime: launchTime)
                 
-                if temporaryInstance.status != "Terminated" {
-                    instances.append(temporaryInstance)
+                if newInstance.canBeAdded {
+                    instances.append(newInstance)
                 }
                 
-                print("Success updating instances array")
+                addOrRemoveNoContentViewIfNecessary()
                 
             } else {
+                if regions.filter({$0.isSelected}).isEmpty {
+                    self.addOrRemoveNoContentViewIfNecessary(type: .noRegionSelected)
+                }
                 print("Error updating instances array")
             }
         }
@@ -231,34 +248,13 @@ class InstancesTVC: UITableViewController {
         return dateFormatter.string(from: dateFromString)
     }
     
-    private func formatStatusCode(code: Int) -> String {
-        switch code {
-        case 0 :
-            return "Pending"
-        case 16 :
-            return "Running"
-        case 32 :
-            return "Shutting down"
-        case 48 :
-            return "Terminated"
-        case 64 :
-            return "Stopping"
-        case 80 :
-            return "Stopped"
-        default:
-            return "Error getting status"
-        }
-    }
-    
     private func showSVProgressHUD() {
         DispatchQueue.main.async {
             SVProgressHUD.show()
         }
     }
     
-    private func addOrRemoveNoContentViewIfNecessary(type: NoContentView.ViewType) {
-        
-//        let noContentViewAlreadyExists = view.subviews.contains(where: {$0 is NoContentView})
+    private func addOrRemoveNoContentViewIfNecessary(type: NoContentView.ViewType = .noInstance) {
         
         if let existingNoContentView = view.subviews.first(where: {$0 is NoContentView}) {
             existingNoContentView.removeFromSuperview()
@@ -275,32 +271,25 @@ class InstancesTVC: UITableViewController {
                 ])
         }
     }
-}
-
-extension InstancesTVC: InstanceCellDelegate {
-    func switchButton(_ cell: InstanceCell, didSwitchButton: UISwitch) {
-        
-        if let indexPath = tableView.indexPath(for: cell) {
-        
-            if cell.switchButton.isOn == true {
-                
-                instances[indexPath.row].status = "Pending"
-                self.actionInstance(url: instanceURL, region: instances[indexPath.row].region, id: instances[indexPath.row].id, action: "start")
-                
-                if defaults.bool(forKey: "notificationsSetting") {
-                    createNotification(instance: self.instances[indexPath.row])
-                    print("Notification for instance \(self.instances[indexPath.row].name) successfully added")
-                }
-                
-            } else if cell.switchButton.isOn == false {
-                
-                instances[indexPath.row].status = "Stopping"
-                self.actionInstance(url: instanceURL, region: instances[indexPath.row].region, id: instances[indexPath.row].id, action: "stop")
-                
-                if defaults.bool(forKey: "notificationsSetting") {
-                    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [self.instances[indexPath.row].name])
-                    print("Notification for instance \(self.instances[indexPath.row].name) successfully removed")
-                }
+    
+    private func didSwitchInstance(at indexPath: IndexPath, isOn: Bool) {
+        if isOn {
+            instances[indexPath.row].status = .pending
+            self.actionInstance(url: instanceURL, region: instances[indexPath.row].region, id: instances[indexPath.row].id, action: "start")
+            
+            if defaults.bool(forKey: "notificationsSetting") {
+                createNotification(instance: self.instances[indexPath.row])
+                print("Notification for instance \(self.instances[indexPath.row].name) successfully added")
+            }
+            
+        } else {
+            
+            instances[indexPath.row].status = .stopping
+            self.actionInstance(url: instanceURL, region: instances[indexPath.row].region, id: instances[indexPath.row].id, action: "stop")
+            
+            if defaults.bool(forKey: "notificationsSetting") {
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [self.instances[indexPath.row].name])
+                print("Notification for instance \(self.instances[indexPath.row].name) successfully removed")
             }
         }
     }
