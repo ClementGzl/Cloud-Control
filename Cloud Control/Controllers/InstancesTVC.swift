@@ -21,8 +21,6 @@ class InstancesTVC: UITableViewController {
             })
         }
     }
-
-    let defaults = UserDefaults.standard
     
     let instanceURL = secretInstanceURL
     let listURL = secretListURL
@@ -273,6 +271,9 @@ class InstancesTVC: UITableViewController {
     }
     
     private func didSwitchInstance(at indexPath: IndexPath, isOn: Bool) {
+        
+        let defaults = UserDefaults.standard
+        
         if isOn {
             instances[indexPath.row].status = .pending
             self.actionInstance(url: instanceURL, region: instances[indexPath.row].region, id: instances[indexPath.row].id, action: "start")
