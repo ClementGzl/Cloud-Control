@@ -13,6 +13,8 @@ extension InstancesTVC: UNUserNotificationCenterDelegate {
     
     func createNotification(instance : Instance) {
         
+        let defaults = UserDefaults.standard
+        
         let userTimeInterval = TimeInterval(defaults.double(forKey: "timerInterval"))
         
         let content = UNMutableNotificationContent()
