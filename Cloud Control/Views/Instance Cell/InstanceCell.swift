@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol InstanceCellDelegate: class {
-    func switchButton(_ cell: InstanceCell, didSwitchButton: UISwitch)
-}
-
 class InstanceCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
@@ -19,8 +15,6 @@ class InstanceCell: UITableViewCell {
     @IBOutlet weak var launchTimeLabel: UILabel!
     @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    weak var delegate: InstanceCellDelegate?
     
     var didSwitch: ((Bool) -> Void)?
     
