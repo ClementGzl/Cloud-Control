@@ -18,13 +18,16 @@ class InstanceCell: UITableViewCell {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var launchTimeLabel: UILabel!
     @IBOutlet weak var switchButton: UISwitch!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     weak var delegate: InstanceCellDelegate?
+    
+    var didSwitch: ((Bool) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.contentView.layer.cornerRadius = 5
+        contentView.layer.cornerRadius = 5
     }
     
     override func layoutSubviews() {
@@ -51,6 +54,6 @@ class InstanceCell: UITableViewCell {
     }
 
     @IBAction func changeInstanceAction(_ sender: UISwitch) {
-        self.delegate?.switchButton(self, didSwitchButton: sender)
+        didSwitch?(sender.isOn)
     }
 }

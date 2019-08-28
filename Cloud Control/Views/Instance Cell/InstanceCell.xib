@@ -32,12 +32,20 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGS-dc-gOx">
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Q2L-pH-bVb">
                             <rect key="frame" x="0.0" y="41.5" width="17" height="35"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGS-dc-gOx">
+                                    <rect key="frame" x="0.0" y="0.0" width="17" height="35"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="L68-uN-YXe">
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="35"/>
+                                </activityIndicatorView>
+                            </subviews>
+                        </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="../../.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQD-ql-lvM">
                             <rect key="frame" x="0.0" y="83.5" width="39.5" height="34.5"/>
                             <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
@@ -60,6 +68,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="activityIndicator" destination="L68-uN-YXe" id="11O-7L-UFn"/>
                 <outlet property="launchTimeLabel" destination="nQD-ql-lvM" id="c7w-vJ-Orq"/>
                 <outlet property="nameLabel" destination="VlP-h2-MTo" id="N1i-iN-n0o"/>
                 <outlet property="statusLabel" destination="eGS-dc-gOx" id="ZcJ-ZS-KLv"/>
