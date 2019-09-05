@@ -53,7 +53,7 @@ class RegionFilterTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "regionCell", for: indexPath)
         
-        cell.textLabel?.text = region.friendlyName
+        cell.textLabel?.text = (region.flagEmoji ?? "") + " " + (region.friendlyName ?? "")
         cell.detailTextLabel?.text = region.rawRegion
         cell.accessoryType = region.isSelected ? .checkmark : .none
         

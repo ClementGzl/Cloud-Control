@@ -67,8 +67,10 @@ class InstancesTVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InstanceCell", for: indexPath) as! InstanceCell
         
         cell.nameLabel.text = instance.name
-        cell.statusLabel.text = instance.status.description
         cell.launchTimeLabel.text = instance.launchTime
+        cell.typeLabel.text = "Type: \(instance.type)"
+        
+        cell.updateStatus(fromStatus: instance.status)
         
         if instance.isLoading {
             cell.activityIndicator.isHidden = false
@@ -127,7 +129,7 @@ class InstancesTVC: UITableViewController {
 
                 let statusJSON = JSON(response.result.value!)
                 
-                self.updateInstancesArray(json:statusJSON)
+                self.updateInstancesArray(json: statusJSON)
                 self.tableView.reloadData()
 
                 SVProgressHUD.dismiss()
@@ -203,9 +205,10 @@ class InstancesTVC: UITableViewController {
             if let id = subJson["InstanceId"].string {
                 
                 var region : String = subJson["Placement"]["AvailabilityZone"].stringValue
-                let launchTime = "Started: \(formatDate(date: subJson["LaunchTime"].stringValue))"
+                let launchTime = "Last started: \(formatDate(date: subJson["LaunchTime"].stringValue))"
                 region.remove(at: region.index(before: region.endIndex))
                 let statusCode = subJson["State"]["Code"].intValue
+                let type = subJson["InstanceType"].stringValue
                 
                 var instanceName: String? = nil
                 
@@ -215,7 +218,7 @@ class InstancesTVC: UITableViewController {
                     }
                 }
                 
-                let newInstance = Instance(region: region, id: id, name: instanceName, statusCode: statusCode, launchTime: launchTime)
+                let newInstance = Instance(region: region, id: id, name: instanceName, statusCode: statusCode, launchTime: launchTime, type: type)
                 
                 if newInstance.canBeAdded {
                     instances.append(newInstance)
