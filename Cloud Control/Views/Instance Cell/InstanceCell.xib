@@ -27,27 +27,33 @@
                     <rect key="frame" x="20" y="10" width="317" height="118"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlP-h2-MTo">
-                            <rect key="frame" x="0.0" y="0.0" width="16.5" height="34.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="16.5" height="24.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Q2L-pH-bVb">
-                            <rect key="frame" x="0.0" y="41.5" width="17" height="35"/>
+                            <rect key="frame" x="0.0" y="31.5" width="17" height="24"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGS-dc-gOx">
-                                    <rect key="frame" x="0.0" y="0.0" width="17" height="35"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="17" height="24"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="L68-uN-YXe">
-                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="35"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="24"/>
                                 </activityIndicatorView>
                             </subviews>
                         </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44I-LL-yNC">
+                            <rect key="frame" x="0.0" y="62.5" width="14" height="24.5"/>
+                            <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="../../.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQD-ql-lvM">
-                            <rect key="frame" x="0.0" y="83.5" width="39.5" height="34.5"/>
+                            <rect key="frame" x="0.0" y="94" width="39.5" height="24"/>
                             <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -73,6 +79,7 @@
                 <outlet property="nameLabel" destination="VlP-h2-MTo" id="N1i-iN-n0o"/>
                 <outlet property="statusLabel" destination="eGS-dc-gOx" id="ZcJ-ZS-KLv"/>
                 <outlet property="switchButton" destination="Wmd-V2-ZlB" id="54Y-cm-tFm"/>
+                <outlet property="typeLabel" destination="44I-LL-yNC" id="SEJ-LV-x17"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
         </view>

@@ -55,18 +55,20 @@ class Instance {
         }
     }
     
-    var region: String
-    var id: String
-    var name: String
+    let region: String
+    let id: String
+    let name: String
     var status: Status
-    var launchTime: String
+    let launchTime: String
+    let type: String
     
-    init(region: String, id: String, name: String?, statusCode: Int, launchTime: String) {
+    init(region: String, id: String, name: String?, statusCode: Int, launchTime: String, type: String) {
         self.region = region
         self.id = id
         self.name = name ?? id
         self.status = Status(code: statusCode)
         self.launchTime = launchTime
+        self.type = type
     }
     
     var canBeAdded: Bool {
