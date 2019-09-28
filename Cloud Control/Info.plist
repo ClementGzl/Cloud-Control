@@ -21,7 +21,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSFaceIDUsageDescription</key>
-	<string>We use Face ID to unlock the VPN</string>
+	<string>Cloud Control uses FaceID to secure your instances when openning the app.</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>

@@ -1,3 +1,2 @@
 github "Alamofire/Alamofire" "4.9.0"
-github "SVProgressHUD/SVProgressHUD" "2.2.5"
 github "SwiftyJSON/SwiftyJSON" "5.0.0"

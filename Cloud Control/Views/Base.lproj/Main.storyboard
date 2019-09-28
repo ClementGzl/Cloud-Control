@@ -79,7 +79,7 @@
                     <navigationItem key="navigationItem" title="Cloud Control" largeTitleDisplayMode="always" id="gDe-hf-HeM">
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="Settings" id="SHC-rr-GJo">
                             <connections>
-                                <segue destination="ibg-z1-0K4" kind="modal" modalPresentationStyle="formSheet" id="9YC-il-Q1F"/>
+                                <segue destination="ibg-z1-0K4" kind="presentation" modalPresentationStyle="formSheet" id="9YC-il-Q1F"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -268,7 +268,7 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mgD-xE-Ya9">
                                                     <rect key="frame" x="345" y="6.5" width="51" height="31"/>
-                                                    <color key="onTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="onTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="notificationsToggle:" destination="XCT-mN-BhJ" eventType="valueChanged" id="OQo-C3-aiq"/>
                                                     </connections>
