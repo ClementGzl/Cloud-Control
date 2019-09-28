@@ -29,48 +29,26 @@ class InstanceCell: UITableViewCell {
         switch status {
         case .pending:
             statusLabel.text = status.description
-            statusLabel.textColor = UIColor.orange
+            statusLabel.textColor = .systemOrange
             switchButton.isOn = true
             switchButton.isEnabled = false
         case .running:
             statusLabel.text = status.description
-            statusLabel.textColor = UIColor.green
+            statusLabel.textColor = .systemGreen
             switchButton.isOn = true
             switchButton.isEnabled = true
         case .stopping, .shuttingDown:
             statusLabel.text = status.description
-            statusLabel.textColor = UIColor.orange
+            statusLabel.textColor = .systemOrange
             switchButton.isOn = false
             switchButton.isEnabled = false
         default:
             statusLabel.text = status.description
-            statusLabel.textColor = UIColor.darkText
+            statusLabel.textColor = .label
             switchButton.isEnabled = true
             switchButton.isOn = false
         }
     }
-    
-//    override func layoutSubviews() {
-//
-//        super.layoutSubviews()
-//        if statusLabel.text == "Running" {
-//            statusLabel.textColor = UIColor.green
-//            switchButton.isOn = true
-//            switchButton.isEnabled = true
-//        } else if statusLabel.text == "Pending" {
-//            statusLabel.textColor = UIColor.orange
-//            switchButton.isOn = true
-//            switchButton.isEnabled = false
-//        } else if statusLabel.text == "Stopping" {
-//            statusLabel.textColor = UIColor.orange
-//            switchButton.isOn = false
-//            switchButton.isEnabled = false
-//        } else {
-//            statusLabel.textColor = UIColor.darkText
-//            switchButton.isEnabled = true
-//            switchButton.isOn = false
-//        }
-//    }
 
     @IBAction func changeInstanceAction(_ sender: UISwitch) {
         didSwitch?(sender.isOn)

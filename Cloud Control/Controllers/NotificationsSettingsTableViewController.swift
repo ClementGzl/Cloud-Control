@@ -97,10 +97,10 @@ class NotificationsSettingsTableViewController: UITableViewController {
                     self.datePicker.countDownDuration = self.userTimerInterval
                 }
                 
-                timerLabel.textColor = UIColor(red:0.04, green:0.26, blue:0.87, alpha:1.0)
+                timerLabel.textColor = .systemBlue
                 
             } else {
-                timerLabel.textColor = UIColor.black
+                timerLabel.textColor = .label
             }
             
             UIView.animate(withDuration: 0.3, animations: { () -> Void in

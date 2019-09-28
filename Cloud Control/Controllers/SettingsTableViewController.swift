@@ -9,12 +9,7 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
-
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Settings.plist")
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    @IBAction func donePressed(_ sender: Any) {
+        dismiss(animated: true)
     }
-
 }
