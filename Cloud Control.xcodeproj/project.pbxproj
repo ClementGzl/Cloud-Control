@@ -13,7 +13,6 @@
 		EB1228C3212B2DA600AD77E8 /* RegionFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C2212B2DA600AD77E8 /* RegionFetcher.swift */; };
 		EB1228C5212B31B100AD77E8 /* RegionFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C4212B31B100AD77E8 /* RegionFilterTableViewController.swift */; };
 		EB1228C7212B371600AD77E8 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C6212B371600AD77E8 /* SettingsTableViewController.swift */; };
-		EB1DB25D226C9E720014EFC2 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1DB25A226C9E720014EFC2 /* SVProgressHUD.framework */; };
 		EB1DB25E226C9E720014EFC2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1DB25B226C9E720014EFC2 /* SwiftyJSON.framework */; };
 		EB1DB25F226C9E720014EFC2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1DB25C226C9E720014EFC2 /* Alamofire.framework */; };
 		EB1DB264226CBCF30014EFC2 /* InstanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB1DB263226CBCF30014EFC2 /* InstanceCell.xib */; };
@@ -38,7 +37,6 @@
 		EB1228C2212B2DA600AD77E8 /* RegionFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionFetcher.swift; sourceTree = "<group>"; };
 		EB1228C4212B31B100AD77E8 /* RegionFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionFilterTableViewController.swift; sourceTree = "<group>"; };
 		EB1228C6212B371600AD77E8 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		EB1DB25A226C9E720014EFC2 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		EB1DB25B226C9E720014EFC2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		EB1DB25C226C9E720014EFC2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EB1DB263226CBCF30014EFC2 /* InstanceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstanceCell.xib; sourceTree = "<group>"; };
@@ -63,7 +61,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB1DB25D226C9E720014EFC2 /* SVProgressHUD.framework in Frameworks */,
 				EB1DB25E226C9E720014EFC2 /* SwiftyJSON.framework in Frameworks */,
 				EB1DB25F226C9E720014EFC2 /* Alamofire.framework in Frameworks */,
 			);
@@ -152,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				EB1DB25C226C9E720014EFC2 /* Alamofire.framework */,
-				EB1DB25A226C9E720014EFC2 /* SVProgressHUD.framework */,
 				EB1DB25B226C9E720014EFC2 /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
@@ -238,7 +234,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputFileListPaths = (

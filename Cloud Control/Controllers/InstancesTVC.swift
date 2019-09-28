@@ -9,7 +9,6 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import SVProgressHUD
 import UserNotifications
 
 class InstancesTVC: UITableViewController {
@@ -36,8 +35,6 @@ class InstancesTVC: UITableViewController {
         UIApplication.shared.applicationIconBadgeNumber = 0
 
         tableView.register(UINib(nibName: "InstanceCell", bundle: nil), forCellReuseIdentifier: "InstanceCell")
-
-        SVProgressHUD.setDefaultMaskType(.clear)
         
         refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(InstancesTVC.pullRefreshStatus), for: UIControl.Event.valueChanged)
@@ -103,19 +100,13 @@ class InstancesTVC: UITableViewController {
 //
 //                let instancesListJSON = JSON(response.result.value!)
 //
-//                SVProgressHUD.dismiss()
-//
 //            } else {
 //                print("Error getting instances list, \(response.result.error!)")
-//
-//                SVProgressHUD.dismiss()
 //            }
 //        }
 //    }
     
     @objc func getStatus(url : String) {
-        
-        showSVProgressHUD()
         
         let selectedRegions = regions.filter({$0.isSelected}).map({$0.rawRegion ?? ""}).joined(separator: ",")
 
@@ -131,13 +122,11 @@ class InstancesTVC: UITableViewController {
                 self.updateInstancesArray(json: statusJSON)
                 self.tableView.reloadData()
 
-                SVProgressHUD.dismiss()
                 self.refresher.endRefreshing()
                 
             } else {
                 print("Error getting status, \(response.result.error!)")
                 
-                SVProgressHUD.dismiss()
                 self.addOrRemoveNoContentViewIfNecessary(type: .error)
                 self.refresher.endRefreshing()
             }
@@ -152,7 +141,6 @@ class InstancesTVC: UITableViewController {
             "action" : action
         ]
 
-        SVProgressHUD.show()
         
         Alamofire.request(url, method: .patch, parameters: actionParams, encoding: URLEncoding.queryString, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
@@ -170,13 +158,11 @@ class InstancesTVC: UITableViewController {
                 if let _ = newStatusJSON[parameterType][0]["CurrentState"]["Code"].int {
                     print("Success changing action instance \(id)")
 
-                    SVProgressHUD.dismiss()
                     self.tableView.reloadData()
                     self.addOrRemoveNoContentViewIfNecessary(type: .noInstance)
                 } else {
                     print("Error updating status from actionInstance")
 
-                    SVProgressHUD.dismiss()
                     self.tableView.reloadData()
                     
                     self.addOrRemoveNoContentViewIfNecessary(type: .error)
@@ -246,12 +232,6 @@ class InstancesTVC: UITableViewController {
         dateFormatter.dateFormat = "dd/MM/yyyy' at 'HH:mm"
         
         return dateFormatter.string(from: dateFromString)
-    }
-    
-    private func showSVProgressHUD() {
-        DispatchQueue.main.async {
-            SVProgressHUD.show()
-        }
     }
     
     private func addOrRemoveNoContentViewIfNecessary(type: NoContentView.ViewType = .noInstance) {
