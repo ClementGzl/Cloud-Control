@@ -40,7 +40,6 @@ class InstancesTVC: UITableViewController {
         SVProgressHUD.setDefaultMaskType(.clear)
         
         refresher = UIRefreshControl()
-        refresher.tintColor = .white
         refresher.addTarget(self, action: #selector(InstancesTVC.pullRefreshStatus), for: UIControl.Event.valueChanged)
         tableView.refreshControl = refresher
         
