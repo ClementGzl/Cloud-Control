@@ -37,6 +37,7 @@ class InstancesTVC: UITableViewController {
         tableView.register(UINib(nibName: "InstanceCell", bundle: nil), forCellReuseIdentifier: "InstanceCell")
         
         refresher = UIRefreshControl()
+        refresher.tintColor = .white
         refresher.addTarget(self, action: #selector(InstancesTVC.pullRefreshStatus), for: UIControl.Event.valueChanged)
         tableView.refreshControl = refresher
         
@@ -44,10 +45,24 @@ class InstancesTVC: UITableViewController {
         tableView.estimatedRowHeight = 100
         
         addOrRemoveNoContentViewIfNecessary(type: .noInstance)
+        
+        setNavigationBarColorIfNeeded()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         getStatus(url: listURL)
+    }
+    
+    private func setNavigationBarColorIfNeeded() {
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            navBarAppearance.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.2588235294, blue: 0.8745098039, alpha: 1)
+            navigationController?.navigationBar.standardAppearance = navBarAppearance
+            navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        }
     }
     
     //MARK: - Tableview data source
