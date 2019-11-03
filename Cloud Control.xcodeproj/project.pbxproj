@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,8 +13,6 @@
 		EB1228C3212B2DA600AD77E8 /* RegionFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C2212B2DA600AD77E8 /* RegionFetcher.swift */; };
 		EB1228C5212B31B100AD77E8 /* RegionFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C4212B31B100AD77E8 /* RegionFilterTableViewController.swift */; };
 		EB1228C7212B371600AD77E8 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1228C6212B371600AD77E8 /* SettingsTableViewController.swift */; };
-		EB1DB25E226C9E720014EFC2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1DB25B226C9E720014EFC2 /* SwiftyJSON.framework */; };
-		EB1DB25F226C9E720014EFC2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB1DB25C226C9E720014EFC2 /* Alamofire.framework */; };
 		EB1DB264226CBCF30014EFC2 /* InstanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB1DB263226CBCF30014EFC2 /* InstanceCell.xib */; };
 		EB2F9655230D55ED00B70394 /* NoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2F9654230D55ED00B70394 /* NoContentView.swift */; };
 		EB5865032199B52500196F7B /* Biometric Authentification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5865022199B52500196F7B /* Biometric Authentification.swift */; };
@@ -27,6 +25,8 @@
 		EBB7893320F37644006BDBF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB7893220F37644006BDBF6 /* Assets.xcassets */; };
 		EBB7893620F37644006BDBF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB7893420F37644006BDBF6 /* LaunchScreen.storyboard */; };
 		EBC232E02306F80200A8E3E5 /* CloudControl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBC232DE2306F80100A8E3E5 /* CloudControl.xcdatamodeld */; };
+		EBF2ED2C236F4BC500E9AEAD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EBF2ED2B236F4BC500E9AEAD /* Alamofire */; };
+		EBF2ED2F236F4BDA00E9AEAD /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = EBF2ED2E236F4BDA00E9AEAD /* SwiftyJSON */; };
 		EBF921DA2142B298007C2975 /* NotificationsSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF921D92142B298007C2975 /* NotificationsSettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,9 +37,8 @@
 		EB1228C2212B2DA600AD77E8 /* RegionFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionFetcher.swift; sourceTree = "<group>"; };
 		EB1228C4212B31B100AD77E8 /* RegionFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionFilterTableViewController.swift; sourceTree = "<group>"; };
 		EB1228C6212B371600AD77E8 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		EB1DB25B226C9E720014EFC2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		EB1DB25C226C9E720014EFC2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EB1DB263226CBCF30014EFC2 /* InstanceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstanceCell.xib; sourceTree = "<group>"; };
+		EB2D8B40234CA99C00F0BBFF /* Cloud Control.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cloud Control.entitlements"; sourceTree = "<group>"; };
 		EB2F9654230D55ED00B70394 /* NoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoContentView.swift; sourceTree = "<group>"; };
 		EB5865022199B52500196F7B /* Biometric Authentification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Biometric Authentification.swift"; sourceTree = "<group>"; };
 		EB8452E22101E8E6001D26BD /* Constants.secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.secret.swift; sourceTree = "<group>"; };
@@ -61,8 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB1DB25E226C9E720014EFC2 /* SwiftyJSON.framework in Frameworks */,
-				EB1DB25F226C9E720014EFC2 /* Alamofire.framework in Frameworks */,
+				EBF2ED2C236F4BC500E9AEAD /* Alamofire in Frameworks */,
+				EBF2ED2F236F4BDA00E9AEAD /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +133,7 @@
 		EBB7892A20F37643006BDBF6 /* Cloud Control */ = {
 			isa = PBXGroup;
 			children = (
+				EB2D8B40234CA99C00F0BBFF /* Cloud Control.entitlements */,
 				EBB7892B20F37643006BDBF6 /* AppDelegate.swift */,
 				EB8452E62101E91C001D26BD /* Controllers */,
 				EB8452E42101E8F5001D26BD /* Views */,
@@ -148,8 +148,6 @@
 		F02F3D9C63406BE0620CC14A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EB1DB25C226C9E720014EFC2 /* Alamofire.framework */,
-				EB1DB25B226C9E720014EFC2 /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -171,6 +169,10 @@
 			dependencies = (
 			);
 			name = "Cloud Control";
+			packageProductDependencies = (
+				EBF2ED2B236F4BC500E9AEAD /* Alamofire */,
+				EBF2ED2E236F4BDA00E9AEAD /* SwiftyJSON */,
+			);
 			productName = "VPN Stat";
 			productReference = EBB7892820F37643006BDBF6 /* Cloud Control.app */;
 			productType = "com.apple.product-type.application";
@@ -200,6 +202,10 @@
 				Base,
 			);
 			mainGroup = EBB7891F20F37643006BDBF6;
+			packageReferences = (
+				EBF2ED2A236F4BC500E9AEAD /* XCRemoteSwiftPackageReference "Alamofire" */,
+				EBF2ED2D236F4BDA00E9AEAD /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = EBB7892920F37643006BDBF6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,8 +239,6 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -243,6 +247,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -408,11 +413,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Cloud Control/Cloud Control.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 4RWKM5E87W;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Cloud Control/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -422,6 +431,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clementgonzalvez.CloudControl;
 				PRODUCT_NAME = "Cloud Control";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -431,11 +441,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Cloud Control/Cloud Control.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 4RWKM5E87W;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Cloud Control/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -445,6 +459,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clementgonzalvez.CloudControl;
 				PRODUCT_NAME = "Cloud Control";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -472,6 +487,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EBF2ED2A236F4BC500E9AEAD /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.9.1;
+			};
+		};
+		EBF2ED2D236F4BDA00E9AEAD /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EBF2ED2B236F4BC500E9AEAD /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBF2ED2A236F4BC500E9AEAD /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		EBF2ED2E236F4BDA00E9AEAD /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBF2ED2D236F4BDA00E9AEAD /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		EBC232DE2306F80100A8E3E5 /* CloudControl.xcdatamodeld */ = {
