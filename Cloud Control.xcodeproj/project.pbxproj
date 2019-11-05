@@ -27,6 +27,8 @@
 		EBC232E02306F80200A8E3E5 /* CloudControl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBC232DE2306F80100A8E3E5 /* CloudControl.xcdatamodeld */; };
 		EBEF56E62371D02F00C594A2 /* Constants.secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEF56E52371D02F00C594A2 /* Constants.secret.swift */; };
 		EBEF56E82371D0B300C594A2 /* InstanceDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEF56E72371D0B300C594A2 /* InstanceDetailsTVC.swift */; };
+		EBEF56EB2371D69600C594A2 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEF56E92371D69600C594A2 /* MapCell.swift */; };
+		EBEF56EC2371D69600C594A2 /* MapCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBEF56EA2371D69600C594A2 /* MapCell.xib */; };
 		EBF2ED2C236F4BC500E9AEAD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EBF2ED2B236F4BC500E9AEAD /* Alamofire */; };
 		EBF2ED2F236F4BDA00E9AEAD /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = EBF2ED2E236F4BDA00E9AEAD /* SwiftyJSON */; };
 		EBF921DA2142B298007C2975 /* NotificationsSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF921D92142B298007C2975 /* NotificationsSettingsTableViewController.swift */; };
@@ -56,6 +58,8 @@
 		EBC232DF2306F80100A8E3E5 /* CloudControl.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CloudControl.xcdatamodel; sourceTree = "<group>"; };
 		EBEF56E52371D02F00C594A2 /* Constants.secret.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.secret.swift; sourceTree = "<group>"; };
 		EBEF56E72371D0B300C594A2 /* InstanceDetailsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceDetailsTVC.swift; sourceTree = "<group>"; };
+		EBEF56E92371D69600C594A2 /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
+		EBEF56EA2371D69600C594A2 /* MapCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCell.xib; sourceTree = "<group>"; };
 		EBF921D92142B298007C2975 /* NotificationsSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +82,7 @@
 				EBB7892F20F37643006BDBF6 /* Main.storyboard */,
 				EBB0FE222125E7BA00D3FF13 /* Instance Cell */,
 				EB2F9654230D55ED00B70394 /* NoContentView.swift */,
+				EBEF56ED2371D69C00C594A2 /* MapCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,6 +154,15 @@
 				EBB7893720F37644006BDBF6 /* Info.plist */,
 			);
 			path = "Cloud Control";
+			sourceTree = "<group>";
+		};
+		EBEF56ED2371D69C00C594A2 /* MapCell */ = {
+			isa = PBXGroup;
+			children = (
+				EBEF56E92371D69600C594A2 /* MapCell.swift */,
+				EBEF56EA2371D69600C594A2 /* MapCell.xib */,
+			);
+			path = MapCell;
 			sourceTree = "<group>";
 		};
 		F02F3D9C63406BE0620CC14A /* Frameworks */ = {
@@ -228,6 +242,7 @@
 			files = (
 				08611CAE2103932200F746C9 /* Constants.secret.swift.example in Resources */,
 				EB1DB264226CBCF30014EFC2 /* InstanceCell.xib in Resources */,
+				EBEF56EC2371D69600C594A2 /* MapCell.xib in Resources */,
 				EBB7893620F37644006BDBF6 /* LaunchScreen.storyboard in Resources */,
 				EBB7893320F37644006BDBF6 /* Assets.xcassets in Resources */,
 				EBB7893120F37643006BDBF6 /* Main.storyboard in Resources */,
@@ -266,6 +281,7 @@
 				EB5865032199B52500196F7B /* Biometric Authentification.swift in Sources */,
 				EBC232E02306F80200A8E3E5 /* CloudControl.xcdatamodeld in Sources */,
 				EB1228C5212B31B100AD77E8 /* RegionFilterTableViewController.swift in Sources */,
+				EBEF56EB2371D69600C594A2 /* MapCell.swift in Sources */,
 				EB0CAC012101FDE50084CC59 /* AuthViewController.swift in Sources */,
 				EBF921DA2142B298007C2975 /* NotificationsSettingsTableViewController.swift in Sources */,
 				EB1228C7212B371600AD77E8 /* SettingsTableViewController.swift in Sources */,
