@@ -80,11 +80,12 @@ class InstanceDetailsTVC: UITableViewController, MKMapViewDelegate {
         
         cell.mapView.delegate = self
         
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), latitudinalMeters: 100000, longitudinalMeters: 100000)
+        let coordinates = getCoordinates(fromRegion: instance.region)
+        let region = MKCoordinateRegion(center: coordinates, latitudinalMeters: 700000, longitudinalMeters: 700000)
         
         let annotation = MKPointAnnotation()
 
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275)
+        annotation.coordinate = coordinates
         annotation.title = instance.name
         
         cell.mapView.addAnnotation(annotation)
@@ -111,20 +112,15 @@ class InstanceDetailsTVC: UITableViewController, MKMapViewDelegate {
         case "us-east-2":
             return CLLocationCoordinate2D(latitude: 40.367474, longitude: -82.996216)
         case "us-west-1":
-            return CLLocationCoordinate2D(latitude: 37.926868, longitude: -78.024902)
-        case "us-east-2":
-            return CLLocationCoordinate2D(latitude: 37.926868, longitude: -78.024902)
-        case "us-east-2":
-            return CLLocationCoordinate2D(latitude: 37.926868, longitude: -78.024902)
-        case "us-east-2":
-            return CLLocationCoordinate2D(latitude: 37.926868, longitude: -78.024902)
-        case "us-east-2":
-            return CLLocationCoordinate2D(latitude: 37.926868, longitude: -78.024902)
-        case "us-east-2":
-            return CLLocationCoordinate2D(latitude: 37.926868, longitude: -78.024902)
-        case "us-east-2":
-            
-            
+            return CLLocationCoordinate2D(latitude: 38.8375, longitude: -120.8958)
+        case "eu-west-1":
+            return CLLocationCoordinate2D(latitude: 53.350140, longitude: -6.266155)
+        case "eu-west-2":
+            return CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275)
+        case "eu-west-3":
+            return CLLocationCoordinate2D(latitude: 48.864716, longitude: 2.349014)
+        default:
+            return CLLocationCoordinate2D(latitude: 48.864716, longitude: 2.349014)
         }
     }
 }
