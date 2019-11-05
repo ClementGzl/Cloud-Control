@@ -85,8 +85,7 @@ class InstanceDetailsTVC: UITableViewController, MKMapViewDelegate {
         let annotation = MKPointAnnotation()
 
         annotation.coordinate = CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275)
-        annotation.title = "London"
-        annotation.subtitle = instance.region
+        annotation.title = instance.name
         
         cell.mapView.addAnnotation(annotation)
         cell.mapView.setRegion(region, animated: false)
@@ -102,6 +101,30 @@ class InstanceDetailsTVC: UITableViewController, MKMapViewDelegate {
             return "instance location"
         default:
             return nil
+        }
+    }
+    
+    private func getCoordinates(fromRegion region: String) -> CLLocationCoordinate2D {
+        switch region {
+        case "us-east-1":
+            return CLLocationCoordinate2D(latitude: 37.926868, longitude: -78.024902)
+        case "us-east-2":
+            return CLLocationCoordinate2D(latitude: 40.367474, longitude: -82.996216)
+        case "us-west-1":
+            return CLLocationCoordinate2D(latitude: 37.926868, longitude: -78.024902)
+        case "us-east-2":
+            return CLLocationCoordinate2D(latitude: 37.926868, longitude: -78.024902)
+        case "us-east-2":
+            return CLLocationCoordinate2D(latitude: 37.926868, longitude: -78.024902)
+        case "us-east-2":
+            return CLLocationCoordinate2D(latitude: 37.926868, longitude: -78.024902)
+        case "us-east-2":
+            return CLLocationCoordinate2D(latitude: 37.926868, longitude: -78.024902)
+        case "us-east-2":
+            return CLLocationCoordinate2D(latitude: 37.926868, longitude: -78.024902)
+        case "us-east-2":
+            
+            
         }
     }
 }

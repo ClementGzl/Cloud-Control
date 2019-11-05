@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19B88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Region" representedClassName="Region" syncable="YES" codeGenerationType="class">
-        <attribute name="coordinates" optional="YES" attributeType="Transformable" customClassName="CLLocationCoordinate2D"/>
         <attribute name="flagEmoji" optional="YES" attributeType="String"/>
         <attribute name="friendlyName" attributeType="String"/>
         <attribute name="isSelected" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="rawRegion" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Region" positionX="-121.59765625" positionY="208.47265625" width="128" height="118"/>
+        <element name="Region" positionX="-121.59765625" positionY="208.47265625" width="128" height="103"/>
     </elements>
 </model>
