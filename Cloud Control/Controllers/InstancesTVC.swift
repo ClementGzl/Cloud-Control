@@ -97,6 +97,15 @@ class InstancesTVC: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let instance = instances[indexPath.row]
+        
+        let instanceDetailsTVC = InstanceDetailsTVC(instance: instance)
+        navigationController?.pushViewController(instanceDetailsTVC, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     //MARK: - Networking
     
