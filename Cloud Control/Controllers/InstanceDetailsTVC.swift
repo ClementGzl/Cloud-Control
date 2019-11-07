@@ -96,6 +96,9 @@ class InstanceDetailsTVC: UITableViewController, MKMapViewDelegate {
         cell.mapView.addAnnotation(annotation)
         cell.mapView.setRegion(region, animated: false)
         
+        let mapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(mapTapped))
+        cell.mapView.addGestureRecognizer(mapGestureRecognizer)
+        
         return cell
     }
     
@@ -108,6 +111,11 @@ class InstanceDetailsTVC: UITableViewController, MKMapViewDelegate {
         default:
             return nil
         }
+    }
+    
+    @objc private func mapTapped() {
+        let coordinates = getCoordinates(fromRegion: instance.region)
+        MKMapItem(placemark: MKPlacemark(coordinate: coordinates)).openInMaps()
     }
     
     private func getCoordinates(fromRegion region: String) -> CLLocationCoordinate2D {
