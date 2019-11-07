@@ -102,7 +102,11 @@ class InstancesTVC: UITableViewController {
         let instance = instances[indexPath.row]
         
         let instanceDetailsTVC = InstanceDetailsTVC(instance: instance)
-        navigationController?.pushViewController(instanceDetailsTVC, animated: true)
+        let instanceNC = UINavigationController(rootViewController: instanceDetailsTVC)
+//        navigationController?.pushViewController(instanceDetailsTVC, animated: true)
+        instanceNC.modalPresentationStyle = .formSheet
+        
+        present(instanceNC, animated: true)
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
