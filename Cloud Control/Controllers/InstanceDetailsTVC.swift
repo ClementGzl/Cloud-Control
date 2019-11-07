@@ -26,10 +26,17 @@ class InstanceDetailsTVC: UITableViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
         title = instance.name
+    
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(donePressed))
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         tableView.allowsSelection = false
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(UINib(nibName: "MapCell", bundle: nil), forCellReuseIdentifier: "MapCell")
+    }
+    
+    @objc private func donePressed() {
+        dismiss(animated: true)
     }
 
     // MARK: - Table view data source
@@ -45,8 +52,6 @@ class InstanceDetailsTVC: UITableViewController, MKMapViewDelegate {
         default:
             return 1
         }
-        
-        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,6 +111,7 @@ class InstanceDetailsTVC: UITableViewController, MKMapViewDelegate {
     }
     
     private func getCoordinates(fromRegion region: String) -> CLLocationCoordinate2D {
+        //todo: finish this
         switch region {
         case "us-east-1":
             return CLLocationCoordinate2D(latitude: 37.926868, longitude: -78.024902)
