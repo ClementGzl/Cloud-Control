@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 
 class RegionFetcher {
-    
     var regions: [Region] = []
     
     static let sharedInstance = RegionFetcher()
@@ -36,7 +35,6 @@ class RegionFetcher {
                 fetch()
                 return
             } else {
-                
                 let sortedRegions = regions.sorted { (lhs, rhs) -> Bool in
                     return lhs.rawRegion ?? "" < rhs.rawRegion ?? ""
                 }
@@ -64,7 +62,6 @@ class RegionFetcher {
     }
     
     private func generateInitialRegions() {
-        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -94,6 +91,11 @@ class RegionFetcher {
         usWest2.rawRegion = "us-west-2"
         usWest2.friendlyName = "US West (Oregon)"
         usWest2.flagEmoji = "🇺🇸"
+        
+        let afSouth1 = Region(entity: userEntity, insertInto: managedContext)
+        afSouth1.rawRegion = "af-south-1"
+        afSouth1.friendlyName = "Africa (Cape Town)"
+        afSouth1.flagEmoji = "🇿🇦"
         
         let apNorthEast1 = Region(entity: userEntity, insertInto: managedContext)
         apNorthEast1.rawRegion = "ap-northeast-1"
@@ -130,6 +132,11 @@ class RegionFetcher {
         euCentral1.friendlyName = "EU (Frankfurt)"
         euCentral1.flagEmoji = "🇩🇪"
         
+        let euSouth1 = Region(entity: userEntity, insertInto: managedContext)
+        euSouth1.rawRegion = "eu-south-1"
+        euSouth1.friendlyName = "Europe (Milan)"
+        euSouth1.flagEmoji = "🇮🇹"
+        
         let euWest1 = Region(entity: userEntity, insertInto: managedContext)
         euWest1.rawRegion = "eu-west-1"
         euWest1.friendlyName = "EU (Ireland)"
@@ -155,11 +162,15 @@ class RegionFetcher {
         saEast1.friendlyName = "South America (São Paulo)"
         saEast1.flagEmoji = "🇧🇷"
         
+        let meSouth1 = Region(entity: userEntity, insertInto: managedContext)
+        meSouth1.rawRegion = "me-south-1"
+        meSouth1.friendlyName = "Middle East (Bahrain)"
+        meSouth1.flagEmoji = "🇧🇭"
+        
         do {
             try managedContext.save()
         } catch {
             print("Error saving inital regions: \(error)")
         }
     }
-    
 }
