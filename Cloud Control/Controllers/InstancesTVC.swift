@@ -12,7 +12,7 @@ import SwiftyJSON
 import UserNotifications
 
 class InstancesTVC: UITableViewController {
-
+    
     var instances = [Instance]() {
         didSet {
             instances = instances.sorted(by: { (lhs, rhs) -> Bool in
@@ -33,7 +33,7 @@ class InstancesTVC: UITableViewController {
         tableView = UITableView(frame: .zero, style: .grouped)
         
         UIApplication.shared.applicationIconBadgeNumber = 0
-
+        
         tableView.register(UINib(nibName: "InstanceCell", bundle: nil), forCellReuseIdentifier: "InstanceCell")
         
         refresher = UIRefreshControl()
@@ -70,7 +70,7 @@ class InstancesTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return instances.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let instance = instances[indexPath.row]
@@ -94,7 +94,7 @@ class InstancesTVC: UITableViewController {
         cell.didSwitch = { [unowned self] (isOn) in
             self.didSwitchInstance(at: indexPath, isOn: isOn)
         }
-
+        
         return cell
     }
     
@@ -102,50 +102,52 @@ class InstancesTVC: UITableViewController {
         let instance = instances[indexPath.row]
         
         let instanceDetailsTVC = InstanceDetailsTVC(instance: instance)
-        navigationController?.pushViewController(instanceDetailsTVC, animated: true)
+        let nc = UINavigationController(rootViewController: instanceDetailsTVC)
+        nc.modalPresentationStyle = .formSheet
+        present(nc, animated: true)
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
+    
     //MARK: - Networking
     
     @objc func pullRefreshStatus() {
         self.getStatus(url: listURL)
     }
     
-//    func getInstancesList(url: String) {
-//
-//        Alamofire.request(url, method: .get, headers: headers).responseJSON {
-//            response in
-//
-//            if response.result.isSuccess {
-//
-//                print("Success, got the instances list")
-//
-//                let instancesListJSON = JSON(response.result.value!)
-//
-//            } else {
-//                print("Error getting instances list, \(response.result.error!)")
-//            }
-//        }
-//    }
+    //    func getInstancesList(url: String) {
+    //
+    //        Alamofire.request(url, method: .get, headers: headers).responseJSON {
+    //            response in
+    //
+    //            if response.result.isSuccess {
+    //
+    //                print("Success, got the instances list")
+    //
+    //                let instancesListJSON = JSON(response.result.value!)
+    //
+    //            } else {
+    //                print("Error getting instances list, \(response.result.error!)")
+    //            }
+    //        }
+    //    }
     
     @objc func getStatus(url : String) {
         
         let selectedRegions = regions.filter({$0.isSelected}).map({$0.rawRegion ?? ""}).joined(separator: ",")
-
+        
         let params: Parameters = ["regions" : selectedRegions]
         
         Alamofire.request(url, method: .get, parameters: params, headers: headers).responseJSON {
             response in
             
             if response.result.isSuccess {
-
+                
                 let statusJSON = JSON(response.result.value!)
                 
                 self.updateInstancesArray(json: statusJSON)
                 self.tableView.reloadData()
-
+                
                 self.refresher.endRefreshing()
                 
             } else {
@@ -158,17 +160,17 @@ class InstancesTVC: UITableViewController {
     }
     
     func actionInstance(url: String, region: String, id: String, action : String) {
-
+        
         let actionParams : Parameters = [
             "region" : region,
             "id" : id,
             "action" : action
         ]
-
+        
         
         Alamofire.request(url, method: .patch, parameters: actionParams, encoding: URLEncoding.queryString, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
-
+                
                 let newStatusJSON = JSON(response.result.value!)
                 print(newStatusJSON)
                 var parameterType = ""
@@ -181,12 +183,12 @@ class InstancesTVC: UITableViewController {
                 
                 if let _ = newStatusJSON[parameterType][0]["CurrentState"]["Code"].int {
                     print("Success changing action instance \(id)")
-
+                    
                     self.tableView.reloadData()
                     self.addOrRemoveNoContentViewIfNecessary(type: .noInstance)
                 } else {
                     print("Error updating status from actionInstance")
-
+                    
                     self.tableView.reloadData()
                     
                     self.addOrRemoveNoContentViewIfNecessary(type: .error)
@@ -208,9 +210,9 @@ class InstancesTVC: UITableViewController {
             addOrRemoveNoContentViewIfNecessary(type: .noInstance)
             print("No Instance")
         }
-
+        
         for (_, subJson):(String, JSON) in json {
-
+            
             if let id = subJson["InstanceId"].string {
                 
                 var region : String = subJson["Placement"]["AvailabilityZone"].stringValue
@@ -272,7 +274,7 @@ class InstancesTVC: UITableViewController {
             NSLayoutConstraint.activate([
                 noContentView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
                 noContentView.topAnchor.constraint(equalTo: tableView.topAnchor, constant: 250)
-                ])
+            ])
         }
     }
     

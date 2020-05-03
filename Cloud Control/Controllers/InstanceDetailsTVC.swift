@@ -30,6 +30,13 @@ class InstanceDetailsTVC: UITableViewController, MKMapViewDelegate {
         tableView.allowsSelection = false
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(UINib(nibName: "MapCell", bundle: nil), forCellReuseIdentifier: "MapCell")
+        
+        let closeButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeTapped))
+        navigationItem.leftBarButtonItem = closeButton
+    }
+    
+    @objc private func closeTapped() {
+        dismiss(animated: true)
     }
 
     // MARK: - Table view data source
@@ -45,8 +52,6 @@ class InstanceDetailsTVC: UITableViewController, MKMapViewDelegate {
         default:
             return 1
         }
-        
-        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
