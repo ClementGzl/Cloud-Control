@@ -97,6 +97,11 @@ class RegionFetcher {
         afSouth1.friendlyName = "Africa (Cape Town)"
         afSouth1.flagEmoji = "🇿🇦"
         
+        let apEast1 = Region(entity: userEntity, insertInto: managedContext)
+        apEast1.rawRegion = "ap-east-1"
+        apEast1.friendlyName = "Asia Pacific (Hong Kong)"
+        apEast1.flagEmoji = "🇭🇰"
+        
         let apNorthEast1 = Region(entity: userEntity, insertInto: managedContext)
         apNorthEast1.rawRegion = "ap-northeast-1"
         apNorthEast1.friendlyName = "Asia Pacific (Tokyo)"
