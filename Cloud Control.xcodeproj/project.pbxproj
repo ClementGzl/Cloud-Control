@@ -182,7 +182,6 @@
 				EBB7892420F37643006BDBF6 /* Sources */,
 				EBB7892520F37643006BDBF6 /* Frameworks */,
 				EBB7892620F37643006BDBF6 /* Resources */,
-				EB1DB260226C9E970014EFC2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -250,27 +249,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		EB1DB260226C9E970014EFC2 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EBB7892420F37643006BDBF6 /* Sources */ = {
