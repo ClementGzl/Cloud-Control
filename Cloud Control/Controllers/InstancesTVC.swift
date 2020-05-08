@@ -241,7 +241,7 @@ class InstancesTVC: UITableViewController {
                 if regions.filter({$0.isSelected}).isEmpty {
                     self.addOrRemoveNoContentViewIfNecessary(type: .noRegionSelected)
                 }
-                print("Error updating instances array")
+                print("Error updating instances array: \(json.description)")
             }
         }
     }
