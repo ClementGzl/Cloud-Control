@@ -27,7 +27,7 @@ extension InstancesTVC: UNUserNotificationCenterDelegate {
         
         content.userInfo = ["region" : instance.region, "id" : instance.id]
         
-        let actionStopInstance = UNNotificationAction(identifier: "stopInstance", title: "Stop Instance", options: [.destructive, .authenticationRequired])
+        let actionStopInstance = UNNotificationAction(identifier: "stopInstance", title: "Stop Instance", options: [.destructive, .authenticationRequired, .foreground])
         let actionSnoozeInstance = UNNotificationAction(identifier: "snoozeInstance", title: "Snooze", options: [])
         
         let reminderCategory = UNNotificationCategory(identifier: "reminderNotification", actions: [actionSnoozeInstance, actionStopInstance], intentIdentifiers: [], options: [])
