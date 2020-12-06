@@ -10,9 +10,10 @@ import UIKit
 import LocalAuthentication
 
 class AuthViewController: UIViewController {
-
-    
     let touchMe = BiometricIDAuth()
+    
+    @IBOutlet weak var loginText: UILabel!
+    @IBOutlet weak var touchIDButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +25,9 @@ class AuthViewController: UIViewController {
         // Define which image button to show depending on the device's biometric type
         switch touchMe.biometricType() {
         case .faceID:
-            touchIDButton.setImage(UIImage(named: "FaceIcon"),  for: .normal)
+            touchIDButton.setBackgroundImage(UIImage(systemName: "faceid"), for: .normal)
         default:
-            touchIDButton.setImage(UIImage(named: "Touch-icon-lg"),  for: .normal)
+            touchIDButton.setBackgroundImage(UIImage(systemName: "touchid"), for: .normal)
         }
     }
     
@@ -36,28 +37,19 @@ class AuthViewController: UIViewController {
         let touchBool = touchMe.canEvaluatePolicy()
         
         if touchBool {
-            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.authenticationWithBiometric()
             }
         }
     }
     
-    @IBOutlet weak var loginText: UILabel!
-    
-    @IBOutlet weak var touchIDButton: UIButton!
-    
     @IBAction func touchIDLoginAction() {
-        
         authenticationWithBiometric()
-        
     }
 }
 
 extension AuthViewController {
-    
     func authenticationWithBiometric() {
-        
         let localAuthenticationContext = LAContext()
         localAuthenticationContext.localizedFallbackTitle = "Use Passcode"
         
@@ -127,7 +119,6 @@ extension AuthViewController {
     }
     
     func evaluateAuthenticationPolicyMessageForLA(errorCode: Int) -> String {
-        
         var message = ""
         
         switch errorCode {

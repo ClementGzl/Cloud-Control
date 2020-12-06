@@ -15,7 +15,7 @@ class InstanceDetailsTVC: UITableViewController, MKMapViewDelegate {
 
     init(instance: Instance) {
         self.instance = instance
-        super.init(style: .grouped)
+        super.init(style: .insetGrouped)
     }
     
     required init?(coder: NSCoder) {

@@ -12,7 +12,6 @@ import SwiftyJSON
 import UserNotifications
 
 class InstancesTVC: UITableViewController {
-    
     var instances = [Instance]() {
         didSet {
             instances = instances.sorted(by: { (lhs, rhs) -> Bool in
@@ -29,9 +28,6 @@ class InstancesTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView = UITableView(frame: .zero, style: .grouped)
-        
         UIApplication.shared.applicationIconBadgeNumber = 0
         
         tableView.register(UINib(nibName: "InstanceCell", bundle: nil), forCellReuseIdentifier: "InstanceCell")
@@ -41,12 +37,9 @@ class InstancesTVC: UITableViewController {
         refresher.addTarget(self, action: #selector(InstancesTVC.pullRefreshStatus), for: UIControl.Event.valueChanged)
         tableView.refreshControl = refresher
         
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
-        
         addOrRemoveNoContentViewIfNecessary(type: .noInstance)
         
-        setNavigationBarColorIfNeeded()
+//        setNavigationBarColorIfNeeded()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,26 +47,27 @@ class InstancesTVC: UITableViewController {
     }
     
     private func setNavigationBarColorIfNeeded() {
-        if #available(iOS 13.0, *) {
-            let navBarAppearance = UINavigationBarAppearance()
-            navBarAppearance.configureWithOpaqueBackground()
-            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-            navBarAppearance.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.2588235294, blue: 0.8745098039, alpha: 1)
-            navigationController?.navigationBar.standardAppearance = navBarAppearance
-            navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-        }
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navBarAppearance.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.2588235294, blue: 0.8745098039, alpha: 1)
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
     }
     
     //MARK: - Tableview data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return instances.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let instance = instances[indexPath.row]
+        let instance = instances[indexPath.section]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "InstanceCell", for: indexPath) as! InstanceCell
         
@@ -99,7 +93,7 @@ class InstancesTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let instance = instances[indexPath.row]
+        let instance = instances[indexPath.section]
         
         let instanceDetailsTVC = InstanceDetailsTVC(instance: instance)
         let nc = UINavigationController(rootViewController: instanceDetailsTVC)
@@ -133,7 +127,6 @@ class InstancesTVC: UITableViewController {
     //    }
     
     @objc func getStatus(url : String) {
-        
         let selectedRegions = regions.filter({$0.isSelected}).map({$0.rawRegion ?? ""}).joined(separator: ",")
         
         let params: Parameters = ["regions" : selectedRegions]
@@ -160,7 +153,6 @@ class InstancesTVC: UITableViewController {
     }
     
     func actionInstance(url: String, region: String, id: String, action : String) {
-        
         let actionParams : Parameters = [
             "region" : region,
             "id" : id,
@@ -203,7 +195,6 @@ class InstancesTVC: UITableViewController {
     //MARK: - JSON Parsing
     
     func updateInstancesArray(json: JSON) {
-        
         instances.removeAll()
         
         if json.isEmpty {
@@ -247,7 +238,6 @@ class InstancesTVC: UITableViewController {
     }
     
     private func formatDate(date: String) -> String {
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         
@@ -261,7 +251,6 @@ class InstancesTVC: UITableViewController {
     }
     
     private func addOrRemoveNoContentViewIfNecessary(type: NoContentView.ViewType = .noInstance) {
-        
         if let existingNoContentView = view.subviews.first(where: {$0 is NoContentView}) {
             existingNoContentView.removeFromSuperview()
         }
@@ -279,26 +268,25 @@ class InstancesTVC: UITableViewController {
     }
     
     private func didSwitchInstance(at indexPath: IndexPath, isOn: Bool) {
-        
         let defaults = UserDefaults.standard
         
         if isOn {
-            instances[indexPath.row].status = .pending
-            self.actionInstance(url: instanceURL, region: instances[indexPath.row].region, id: instances[indexPath.row].id, action: "start")
+            instances[indexPath.section].status = .pending
+            self.actionInstance(url: instanceURL, region: instances[indexPath.section].region, id: instances[indexPath.section].id, action: "start")
             
             if defaults.bool(forKey: "notificationsSetting") {
-                createNotification(instance: self.instances[indexPath.row])
-                print("Notification for instance \(self.instances[indexPath.row].name) successfully added")
+                createNotification(instance: self.instances[indexPath.section])
+                print("Notification for instance \(self.instances[indexPath.section].name) successfully added")
             }
             
         } else {
             
-            instances[indexPath.row].status = .stopping
-            self.actionInstance(url: instanceURL, region: instances[indexPath.row].region, id: instances[indexPath.row].id, action: "stop")
+            instances[indexPath.section].status = .stopping
+            self.actionInstance(url: instanceURL, region: instances[indexPath.section].region, id: instances[indexPath.section].id, action: "stop")
             
             if defaults.bool(forKey: "notificationsSetting") {
-                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [self.instances[indexPath.row].name])
-                print("Notification for instance \(self.instances[indexPath.row].name) successfully removed")
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [self.instances[indexPath.section].name])
+                print("Notification for instance \(self.instances[indexPath.section].name) successfully removed")
             }
         }
     }
